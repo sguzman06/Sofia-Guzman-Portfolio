@@ -1,126 +1,109 @@
 import { useMemo, useState } from "react";
+import { useLang } from "../hooks/useLang";
 
-type Project = {
+type ProjectFilter = { id: string; label: string };
+
+type ProjectCard = {
+  id: string;
   title: string;
   year: string;
-  tags: string[];
   summary: string;
-  view?: string;   // demo / dashboard
-  repo?: string;   // GitHub (si aplica)
-  upcoming?: boolean;
-  cover?: string;  // opcional: ruta de imagen (public/img/...)
+  tags: string[];
+  status?: string;
+  badge?: string;
+  viewUrl?: string | null;
+  repoUrl?: string | null;
 };
 
-const ALL: Project[] = [
-  {
-    title: "Pasantía · Pescar — Artech",
-    year: "2025",
-    tags: ["Power BI", "SQL", "ETL", "Dashboard"],
-    summary:
-      "Proyecto final en Data Analytics: limpieza, modelado, KPIs y dashboard para la toma de decisiones.",
-    upcoming: true,
-  },
-  {
-    title: "Demo · KPIs de Ventas (Power BI)",
-    year: "2024",
-    tags: ["Power BI", "Dashboard"],
-    summary:
-      "Dashboard de ejemplo con segmentaciones y descripciones de KPIs. Focus en claridad visual.",
-    view: "#",
-  },
-  {
-    title: "EDA · Titanic (Python)",
-    year: "2024",
-    tags: ["Python", "Data Viz"],
-    summary:
-      "Exploración de datos, manejo de nulos y visualizaciones rápidas para entender patrones.",
-    repo: "https://github.com/sguzman06",
-  },
-  {
-    title: "Airbnb · Visualización (Tableau)",
-    year: "2024",
-    tags: ["Tableau", "Data Viz"],
-    summary:
-      "Vista general de precios, review score y distribución geográfica con filtros interactivos.",
-    view: "#",
-  },
-];
-
-const TAGS = ["Todos", "Power BI", "Python", "Tableau", "SQL", "ETL", "Dashboard", "Data Viz"];
-
 export default function Projects(){
-  const [tag, setTag] = useState("Todos");
-  const items = useMemo(
-    () => (tag === "Todos" ? ALL : ALL.filter(p => p.tags.includes(tag))),
-    [tag]
-  );
+  const { t } = useLang();
+  const filters = t<ProjectFilter[]>("projects.filters");
+  const projects = t<ProjectCard[]>("projects.cards");
+  const links = t<Record<string, string>>("projects.links");
+  const [activeFilter, setActiveFilter] = useState(() => filters[0]?.id ?? "all");
+
+  const tagLabels = useMemo(() => new Map(filters.map((filter) => [filter.id, filter.label])), [filters]);
+
+  const visibleProjects = useMemo(() => {
+    if (activeFilter === "all") {
+      return projects;
+    }
+    return projects.filter((project) => project.tags.includes(activeFilter));
+  }, [projects, activeFilter]);
 
   return (
-    <section id="proyectos" className="section projects-section">
-      <div className="container">
-        <span className="kicker">proyectos · プロジェクト</span>
-        <h2>Algunos trabajos y experimentos</h2>
-
-        <div className="chips" style={{marginTop: 8}}>
-          {TAGS.map(t => (
+    <section id="projects" className="section section--projects" aria-labelledby="projects-title">
+      <div className="section__inner">
+        <span className="section__kicker">{t("projects.kicker")}</span>
+        <h2 id="projects-title" className="section__title">{t("projects.title")}</h2>
+        <div className="projects__filters" role="group" aria-label={t("projects.kicker")}>
+          {filters.map((filter) => (
             <button
-              key={t}
-              className={`chip ${tag === t ? "active" : ""}`}
-              onClick={() => setTag(t)}
-              aria-pressed={tag === t}
+              key={filter.id}
+              type="button"
+              className={`chip${activeFilter === filter.id ? " is-active" : ""}`}
+              onClick={() => setActiveFilter(filter.id)}
+              aria-pressed={activeFilter === filter.id}
             >
-              {t}
+              {filter.label}
             </button>
           ))}
         </div>
-
-        <div className="projects-grid">
-          {items.map((p) => (
-            <article key={p.title} className={`project-card ${p.upcoming ? "upcoming" : ""}`}>
-              <div className="project-cover">
-                {p.cover ? (
-                  <img src={p.cover} alt={`Cover de ${p.title}`} />
-                ) : (
-                  <div className="grad" aria-hidden />
-                )}
-                {p.upcoming && <span className="badge">en progreso</span>}
-              </div>
-
-              <div className="project-body">
-                <div className="project-head">
-                  <h3>{p.title}</h3>
-                  <span className="year">{p.year}</span>
+        <div className="projects__grid">
+          {visibleProjects.map((project) => {
+            const isUpcoming = project.status === "upcoming";
+            return (
+              <article key={project.id} className={`project-card${isUpcoming ? " project-card--upcoming" : ""}`}>
+                <div className="project-card__cover" aria-hidden="true">
+                  <div className="project-card__placeholder" />
+                  {isUpcoming && project.badge && <span className="project-card__badge">{project.badge}</span>}
                 </div>
-                <p className="project-summary">{p.summary}</p>
-
-                <div className="chips small" style={{marginTop:6}}>
-                  {p.tags.map(t => <span key={t} className="chip ghost">{t}</span>)}
+                <div className="project-card__body">
+                  <div className="project-card__header">
+                    <h3 className="project-card__title">{project.title}</h3>
+                    <span className="project-card__year">{project.year}</span>
+                  </div>
+                  <p className="project-card__summary">{project.summary}</p>
+                  <div className="project-card__tags">
+                    {project.tags.map((tag) => (
+                      <span key={`${project.id}-${tag}`} className="chip chip--ghost">
+                        {tagLabels.get(tag) ?? tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="project-card__actions">
+                    {project.viewUrl && project.viewUrl !== "#" && (
+                      <a
+                        className="btn btn--ghost"
+                        href={project.viewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${links.view} · ${project.title}. ${t("common.externalNewTab")}`}
+                      >
+                        {links.view}
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        className="btn btn--ghost"
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${links.repo} · ${project.title}. ${t("common.externalNewTab")}`}
+                      >
+                        {links.repo}
+                      </a>
+                    )}
+                    {isUpcoming && (
+                      <span className="project-card__hint">{links.upcoming}</span>
+                    )}
+                  </div>
                 </div>
-
-                <div className="project-cta">
-                  {p.view && (
-                    <a className="btn ghost" href={p.view} target="_blank" rel="noreferrer">
-                      Ver
-                    </a>
-                  )}
-                  {p.repo && (
-                    <a className="btn ghost" href={p.repo} target="_blank" rel="noreferrer">
-                      Repo
-                    </a>
-                  )}
-                  {p.upcoming && (
-                    <span className="hint">Publico pronto el dashboard</span>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
-
-      {/* atmósfera sutil */}
-      <div className="orb micro pink m1" />
-      <div className="orb micro turq m2" />
     </section>
   );
 }

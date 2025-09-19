@@ -1,4 +1,5 @@
-import useTheme from "../hooks/useTheme";
+import { useLang } from "../hooks/useLang";
+import { useTheme } from "../hooks/useTheme";
 
 const Moon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -13,11 +14,18 @@ const Sun = () => (
 
 export default function ThemeToggle(){
   const { theme, toggle } = useTheme();
+  const { t } = useLang();
   const isDark = theme === "dark";
+  const nextMode = isDark ? "light" : "dark";
   return (
-    <button className="theme-toggle" onClick={toggle} aria-label="Cambiar tema">
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={toggle}
+      aria-label={t(`common.themeToggle.aria.${nextMode}`)}
+    >
       <span className="theme-icon" aria-hidden="true">{isDark ? <Moon/> : <Sun/>}</span>
-      <span className="theme-label">{isDark ? "Oscuro" : "Claro"}</span>
+      <span className="theme-label">{t(`common.themeToggle.${theme}`)}</span>
     </button>
   );
 }

@@ -1,60 +1,70 @@
-
 import Typewriter from "../components/Typewriter";
+import { useLang } from "../hooks/useLang";
 
 export default function Home(){
+  const { t } = useLang();
+  const words = t<string[]>("home.typewriterWords");
+  const cta = t<Record<string, string>>("home.cta");
+
   return (
-    <header id="inicio" className="hero">
-      <div className="container grid">
-        <div>
-          <h1>Hola! Soy Sofi</h1>
-
-          <p style={{fontSize: 22, margin: "6px 0 8px"}}>
-            Soy <strong>
-              <Typewriter words={[
-                "Analista de datos",
-                "Amante de los michis",
-                "Curiosa por los insights",
-              ]}/>
-            </strong>
+    <section id="home" className="section section--home" aria-labelledby="home-title">
+      <div className="section__inner home__grid">
+        <div className="home__content">
+          <h1 id="home-title" className="home__title">{t("home.title")}</h1>
+          <p className="home__type">
+            <span className="home__type-prefix">{t("home.typewriterPrefix")}</span>{" "}
+            <strong><Typewriter words={words} /></strong>
           </p>
-
-          <p className="subtitle">Estudiante de Informática (UBA)</p>
-          <p className="subtitle" style={{marginTop: -6, display:"flex", alignItems:"center", gap:8}}>
+          <p className="home__subtitle">{t("home.subtitle")}</p>
+          <p className="home__location">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/>
             </svg>
-            Buenos Aires, Argentina
+            <span className="home__location-label">{t("home.locationLabel")}</span>
+            <span>{t("home.location")}</span>
           </p>
-
-          {/* Cita profesional */}
-          <p className="quote">
-            Aspiro a conectar y dejar una huella significativa en cada proyecto.
-          </p>
-
-          <div className="cta">
-            <a className="btn" href="/cv/sofia-guzman.pdf" download>Descargar CV</a>
-            <a className="btn github" href="https://github.com/sguzman06" target="_blank" rel="noreferrer">GitHub</a>
-            <a className="btn linkedin" href="https://www.linkedin.com/in/sguzman06/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <p className="home__quote">{t("home.quote")}</p>
+          <div className="home__actions">
+            <a
+              className="btn btn--primary"
+              href="/cv/sofia-guzman.pdf"
+              download
+              aria-label={t("home.downloadAria")}
+            >
+              {cta.download}
+            </a>
+            <a
+              className="btn btn--ghost"
+              href="https://github.com/sguzman06"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${cta.github}. ${t("common.externalNewTab")}`}
+            >
+              {cta.github}
+            </a>
+            <a
+              className="btn btn--ghost"
+              href="https://www.linkedin.com/in/sguzman06/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${cta.linkedin}. ${t("common.externalNewTab")}`}
+            >
+              {cta.linkedin}
+            </a>
           </div>
         </div>
-
-        {/* imagen anime, discreta */}
-        <div style={{display:"flex", justifyContent:"center"}}>
-          <img className="avatar" src="/img/sofi-anime.png" alt="Sofi estilo anime" />
-        </div>
+        <figure className="home__figure">
+          <img
+            className="home__image"
+            src="/img/sofi-anime.png"
+            srcSet="/img/sofi-anime.png 1x, /img/sofi-anime.png 2x"
+            sizes="(min-width: 62rem) 360px, (min-width: 48rem) 300px, 70vw"
+            alt={t("home.avatarAlt")}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
-
-      {/* orbes */}
-      <div className="orb pink" />
-      <div className="orb turq" />
-      <div className="orb sun" />
-
-      {/* micro orbes que aparecen/desaparecen */}
-      <div className="orb micro pink m1" />
-      <div className="orb micro turq m2" />
-      <div className="orb micro pink m3" />
-      <div className="orb micro sun  m4" />
-
-    </header>
+    </section>
   );
 }

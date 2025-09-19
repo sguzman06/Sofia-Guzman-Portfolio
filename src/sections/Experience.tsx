@@ -1,112 +1,99 @@
+import RichText from "../components/RichText";
+import { useLang } from "../hooks/useLang";
 
-type Exp = {
-  periodo: string;
-  rol: string;
+type CaseStudy = {
+  badge: string;
+  title: string;
+  subtitle: string;
+  problemTitle: string;
+  problem: string;
+  approachTitle: string;
+  approach: string[];
+  stackTitle: string;
+  stack: string[];
+  resultsTitle: string;
+  results: string[];
+  ctaLabel: string;
+  ctaTitle: string;
+};
+
+type TimelineEntry = {
+  period: string;
+  role: string;
   org: string;
-  ubicacion?: string;
+  location?: string;
   bullets: string[];
 };
 
-const TIMELINE: Exp[] = [
-  {
-    periodo: "2025 — actual",
-    rol: "Pasantía en Data Analytics",
-    org: "Fundación Pescar · Artech",
-    ubicacion: "Remoto / Buenos Aires",
-    bullets: [
-      "Práctica intensiva en limpieza, modelado y presentación de datos.",
-      "KPIs y dashboard orientados a toma de decisiones.",
-      "Documentación y comunicación de hallazgos."
-    ],
-  },
-  // Agregaremos más entradas cuando me pases detalles:
-  // { periodo: "AÑO — AÑO", rol: "Rol", org: "Organización", ubicacion: "", bullets: ["..."] },
-];
-
 export default function Experience(){
+  const { t } = useLang();
+  const caseStudy = t<CaseStudy>("experience.case");
+  const timeline = t<TimelineEntry[]>("experience.timeline");
+
   return (
-    <section id="experiencia" className="section exp-section">
-      <div className="container">
-        <span className="kicker">experiencia · 経験</span>
-        <h2>Lo que estoy haciendo y lo que hice</h2>
-
-        {/* --- Case destacado: Pescar — Artech --- */}
-        <article className="case-card">
-          <div className="case-head">
-            <span className="badge">Case • en progreso</span>
-            <h3 className="case-title">Pasantía · Pescar — Artech</h3>
-            <p className="case-sub">Proyecto final de Data Analytics para publicar en mi portfolio</p>
+    <section id="experience" className="section section--experience" aria-labelledby="experience-title">
+      <div className="section__inner">
+        <span className="section__kicker">{t("experience.kicker")}</span>
+        <h2 id="experience-title" className="section__title">{t("experience.title")}</h2>
+        <article className="case-card" aria-labelledby="case-study-title">
+          <div className="case-card__head">
+            <span className="case-card__badge">{caseStudy.badge}</span>
+            <h3 id="case-study-title" className="case-card__title">{caseStudy.title}</h3>
+            <p className="case-card__subtitle">{caseStudy.subtitle}</p>
           </div>
-
-          <div className="case-grid">
+          <div className="case-card__grid">
             <div>
-              <h4>Problema</h4>
-              <p>
-                Necesidad de <strong>unificar datos</strong> y presentar <strong>KPIs claros</strong> que ayuden a
-                priorizar acciones y medir impacto.
-              </p>
-              <h4>Enfoque</h4>
-              <ul className="list-icon">
-                <li>Limpieza y normalización · ETL</li>
-                <li>Modelo analítico y cálculo de KPIs</li>
-                <li>Dashboard con historia y foco en decisiones</li>
+              <h4 className="case-card__section-title">{caseStudy.problemTitle}</h4>
+              <RichText value={caseStudy.problem} as="p" className="case-card__paragraph" />
+              <h4 className="case-card__section-title">{caseStudy.approachTitle}</h4>
+              <ul className="case-card__list">
+                {caseStudy.approach.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
-
             <div>
-              <h4>Stack</h4>
-              <div className="chips">
-                <span className="chip tone-1">SQL</span>
-                <span className="chip tone-2">Python</span>
-                <span className="chip tone-3">Power BI</span>
-                <span className="chip">Excel Avanzado</span>
+              <h4 className="case-card__section-title">{caseStudy.stackTitle}</h4>
+              <div className="chip-list">
+                {caseStudy.stack.map((item) => (
+                  <span key={item} className="chip">{item}</span>
+                ))}
               </div>
-
-              <h4 style={{marginTop:12}}>Resultados esperados</h4>
-              <ul className="list-icon">
-                <li>KPIs accionables (seguimiento mensual)</li>
-                <li>Visualización simple para stakeholders</li>
-                <li>Guía de lectura + definiciones</li>
+              <h4 className="case-card__section-title">{caseStudy.resultsTitle}</h4>
+              <ul className="case-card__list">
+                {caseStudy.results.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
-
-              {/* Botón: cambiale href cuando tengas el link */}
-              <div style={{marginTop:12}}>
-                <a
-                  className="btn ghost disabled"
-                  href="#"
-                  aria-disabled="true"
-                  title="Próximamente"
-                >
-                  Ver dashboard (pronto)
-                </a>
-              </div>
+              <button type="button" className="btn btn--ghost" disabled title={caseStudy.ctaTitle}>
+                {caseStudy.ctaLabel}
+              </button>
             </div>
           </div>
         </article>
-
-        {/* --- Timeline compacto --- */}
         <div className="timeline">
-          {TIMELINE.map((e) => (
-            <article key={e.rol + e.periodo} className="tl-item">
-              <div className="tl-dot" />
-              <div className="tl-content">
-                <div className="tl-top">
-                  <h3>{e.rol}</h3>
-                  <span className="tl-periodo">{e.periodo}</span>
+          {timeline.map((entry) => (
+            <article key={`${entry.role}-${entry.period}`} className="timeline__item">
+              <div className="timeline__dot" aria-hidden="true" />
+              <div className="timeline__content">
+                <div className="timeline__header">
+                  <h3 className="timeline__title">{entry.role}</h3>
+                  <span className="timeline__period">{entry.period}</span>
                 </div>
-                <p className="tl-org">{e.org} {e.ubicacion ? `· ${e.ubicacion}` : ""}</p>
-                <ul className="list-icon" style={{marginTop:6}}>
-                  {e.bullets.map((b, i) => (<li key={i}>{b}</li>))}
+                <p className="timeline__org">
+                  {entry.org}
+                  {entry.location ? ` · ${entry.location}` : ""}
+                </p>
+                <ul className="timeline__list">
+                  {entry.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </article>
           ))}
         </div>
       </div>
-
-      {/* atmósfera sutil */}
-      <div className="orb micro pink m1" />
-      <div className="orb micro turq m2" />
     </section>
   );
 }

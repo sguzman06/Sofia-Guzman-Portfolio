@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "title": "Sofía Guzmán · Analista de Datos",
+    "description": "Portfolio de Sofía Guzmán, analista de datos y estudiante de Ingeniería en Informática orientada a analítica, visualización y narrativas con datos.",
+    "ogTitle": "Sofía Guzmán · Portfolio de Analítica de Datos",
+    "ogDescription": "Proyectos, experiencia y contacto de Sofía Guzmán: analista de datos, dashboards en Power BI y Tableau, foco en insights accionables.",
+    "keywords": "Sofía Guzmán, data analytics, power bi, tableau, portfolio, analista de datos, buenos aires",
+    "locale": "es_AR"
+  },
+  "common": {
+    "skipLink": "Saltar al contenido principal",
+    "backToTop": "Volver arriba",
+    "themeToggle": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "aria": {
+        "light": "Cambiar a modo claro",
+        "dark": "Cambiar a modo oscuro"
+      }
+    },
+    "languageToggle": {
+      "label": "Idioma",
+      "names": {
+        "es": "ES",
+        "en": "EN"
+      },
+      "switchTo": {
+        "es": "Cambiar idioma a español",
+        "en": "Cambiar idioma a inglés"
+      }
+    },
+    "externalNewTab": "Se abre en una pestaña nueva"
+  },
+  "nav": {
+    "brand": "Sofía Guzmán",
+    "logoAlt": "Logotipo de Sofía Guzmán",
+    "aria": "Secciones principales",
+    "sections": [
+      { "id": "home", "label": "Inicio" },
+      { "id": "about", "label": "Sobre mí" },
+      { "id": "skills", "label": "Skills" },
+      { "id": "projects", "label": "Proyectos" },
+      { "id": "experience", "label": "Experiencia" },
+      { "id": "education", "label": "Educación" },
+      { "id": "contact", "label": "Contacto" }
+    ]
+  },
+  "home": {
+    "title": "Hola, soy Sofi",
+    "typewriterPrefix": "Soy",
+    "typewriterWords": [
+      "Analista de datos",
+      "Amante de los michis",
+      "Curiosa por los insights"
+    ],
+    "subtitle": "Estudiante de Informática (UBA)",
+    "locationLabel": "Basada en",
+    "location": "Buenos Aires, Argentina",
+    "quote": "Aspiro a conectar y dejar una huella significativa en cada proyecto.",
+    "downloadAria": "Descargar CV de Sofía Guzmán",
+    "cta": {
+      "download": "Descargar CV",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "avatarAlt": "Ilustración de Sofi en estilo anime"
+  },
+  "about": {
+    "kicker": "Sobre mí · ソフィ",
+    "title": "Construyo historias con datos, sin perder lo humano.",
+    "note": "データで物語を作る — crear historias con datos.",
+    "paragraphs": [
+      "Soy Sofi, estudiante de Ingeniería en Informática (UBA) con foco en [strong]análisis de datos[/strong]. Me mueven la curiosidad, el diseño claro y la colaboración. Busco que cada entrega conecte con personas reales y aporte valor medible.",
+      "Actualmente trabajo con [strong]SQL[/strong], [strong]Python[/strong], [strong]Power BI[/strong], [strong]Tableau[/strong], [strong]Excel avanzado[/strong] y base en [strong]SAP[/strong]. Me interesan la [strong]IA aplicada[/strong], la [strong]visualización[/strong] y el [strong]UX de datos[/strong]."
+    ],
+    "chips": [
+      "SQL",
+      "Python",
+      "Power BI",
+      "Tableau",
+      "Excel Avanzado",
+      "Estadística",
+      "ETL",
+      "Data Viz",
+      "SAP (base)",
+      "Git"
+    ],
+    "card": {
+      "title": "Ahora mismo",
+      "items": [
+        "📚 UBA – Ingeniería en Informática",
+        "📊 Proyectos de [strong]Data Analytics[/strong] y visualización",
+        "🔧 Práctica y base en [strong]SAP[/strong]"
+      ],
+      "internshipTitle": "Pasantía · Pescar — Artech",
+      "internshipSummary": "Estoy completando una pasantía donde preparo un [strong]proyecto final[/strong]. El enfoque: limpieza de datos, modelado, KPIs y un dashboard claro para tomar decisiones. ([em]En Experiencia detallo metodología y aprendizajes[/em].)"
+    }
+  },
+  "skills": {
+    "kicker": "Skills · スキル",
+    "title": "Herramientas que uso para entender y contar datos",
+    "cards": [
+      {
+        "id": "analysis",
+        "title": "Análisis de Datos",
+        "items": ["SQL", "Python", "Estadística", "Limpieza / Modelado", "KPIs"]
+      },
+      {
+        "id": "bi",
+        "title": "BI · Visualización",
+        "items": ["Power BI (DAX/M)", "Power Query", "Tableau", "Dashboards", "Reporting"]
+      },
+      {
+        "id": "dataops",
+        "title": "DataOps · Integración",
+        "items": ["ETL", "Excel Avanzado", "Git", "SAP (base)", "Automatización"]
+      },
+      {
+        "id": "soft",
+        "title": "Habilidades Blandas",
+        "items": ["Comunicación", "Colaboración", "Organización", "Detalle"]
+      }
+    ]
+  },
+  "projects": {
+    "kicker": "Proyectos · プロジェクト",
+    "title": "Algunos trabajos y experimentos",
+    "filters": [
+      { "id": "all", "label": "Todos" },
+      { "id": "power-bi", "label": "Power BI" },
+      { "id": "python", "label": "Python" },
+      { "id": "tableau", "label": "Tableau" },
+      { "id": "sql", "label": "SQL" },
+      { "id": "etl", "label": "ETL" },
+      { "id": "dashboard", "label": "Dashboards" },
+      { "id": "data-viz", "label": "Data Viz" }
+    ],
+    "links": {
+      "view": "Ver",
+      "repo": "Repo",
+      "upcoming": "Publico pronto el dashboard"
+    },
+    "cards": [
+      {
+        "id": "pescar",
+        "title": "Pasantía · Pescar — Artech",
+        "year": "2025",
+        "summary": "Proyecto final en Data Analytics: limpieza, modelado, KPIs y dashboard para la toma de decisiones.",
+        "tags": ["power-bi", "sql", "etl", "dashboard"],
+        "status": "upcoming",
+        "badge": "En progreso"
+      },
+      {
+        "id": "ventas",
+        "title": "Demo · KPIs de Ventas (Power BI)",
+        "year": "2024",
+        "summary": "Dashboard de ejemplo con segmentaciones y descripciones de KPIs. Focus en claridad visual.",
+        "tags": ["power-bi", "dashboard"],
+        "viewUrl": "#"
+      },
+      {
+        "id": "titanic",
+        "title": "EDA · Titanic (Python)",
+        "year": "2024",
+        "summary": "Exploración de datos, manejo de nulos y visualizaciones rápidas para entender patrones.",
+        "tags": ["python", "data-viz"],
+        "repoUrl": "https://github.com/sguzman06"
+      },
+      {
+        "id": "airbnb",
+        "title": "Airbnb · Visualización (Tableau)",
+        "year": "2024",
+        "summary": "Vista general de precios, review score y distribución geográfica con filtros interactivos.",
+        "tags": ["tableau", "data-viz"],
+        "viewUrl": "#"
+      }
+    ]
+  },
+  "experience": {
+    "kicker": "Experiencia · 経験",
+    "title": "Lo que estoy haciendo y lo que hice",
+    "case": {
+      "badge": "Case • en progreso",
+      "title": "Pasantía · Pescar — Artech",
+      "subtitle": "Proyecto final de Data Analytics para publicar en mi portfolio",
+      "problemTitle": "Problema",
+      "problem": "Necesidad de [strong]unificar datos[/strong] y presentar [strong]KPIs claros[/strong] que ayuden a priorizar acciones y medir impacto.",
+      "approachTitle": "Enfoque",
+      "approach": [
+        "Limpieza y normalización · ETL",
+        "Modelo analítico y cálculo de KPIs",
+        "Dashboard con historia y foco en decisiones"
+      ],
+      "stackTitle": "Stack",
+      "stack": ["SQL", "Python", "Power BI", "Excel Avanzado"],
+      "resultsTitle": "Resultados esperados",
+      "results": [
+        "KPIs accionables (seguimiento mensual)",
+        "Visualización simple para stakeholders",
+        "Guía de lectura + definiciones"
+      ],
+      "ctaLabel": "Ver dashboard (pronto)",
+      "ctaTitle": "Próximamente"
+    },
+    "timeline": [
+      {
+        "period": "2025 — actual",
+        "role": "Pasantía en Data Analytics",
+        "org": "Fundación Pescar · Artech",
+        "location": "Remoto / Buenos Aires",
+        "bullets": [
+          "Práctica intensiva en limpieza, modelado y presentación de datos.",
+          "KPIs y dashboard orientados a toma de decisiones.",
+          "Documentación y comunicación de hallazgos."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "kicker": "Educación · 教育",
+    "title": "Formación",
+    "card": {
+      "title": "UBA — Ingeniería en Informática",
+      "year": "En curso",
+      "location": "Buenos Aires, Argentina",
+      "bullets": [
+        "Materias afines: Estadística, Base de Datos, Algoritmos",
+        "Intereses: Data Analytics, Visualización, UX de datos"
+      ]
+    }
+  },
+  "contact": {
+    "kicker": "Contacto · 連絡先",
+    "title": "¿Charlamos?",
+    "intro": "Si te interesa colaborar o conocer más sobre mis proyectos, escribime.",
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Correo",
+      "emailPlaceholder": "tu@email.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Contame sobre tu idea o proyecto...",
+      "submit": "Enviar mensaje",
+      "subject": "Consulta desde el portfolio",
+      "bodyTemplate": "Hola Sofi,\nSoy {name}.\n\n{message}\n\nCorreo de contacto: {email}",
+      "mailto": "mailto:sguzman06@gmail.com",
+      "success": "Abrí tu cliente de correo para completar el envío.",
+      "error": "No se pudo preparar el correo. Probá el enlace directo.",
+      "validations": {
+        "nameRequired": "Necesito saber tu nombre.",
+        "emailRequired": "El correo es obligatorio.",
+        "emailInvalid": "El formato del correo no es válido.",
+        "messageRequired": "Contame al menos una idea general."
+      },
+      "fallbackLabel": "También podés escribirme directamente a",
+      "fallbackCta": "Enviar correo"
+    },
+    "networks": {
+      "label": "Encontrame también en",
+      "items": [
+        {
+          "id": "linkedin",
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/sguzman06/"
+        },
+        {
+          "id": "github",
+          "label": "GitHub",
+          "url": "https://github.com/sguzman06"
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Ups, esta página no existe",
+    "message": "Volvé al inicio para seguir navegando.",
+    "cta": "Ir al inicio"
+  }
+}
