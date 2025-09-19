@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 
 type Props = {
   words: string[];
@@ -13,29 +14,50 @@ export default function Typewriter({
   deletingSpeed = 50,
   pause = 1100,
 }: Props){
-  const [i, setI] = useState(0);      // índice palabra
-  const [text, setText] = useState(""); 
-  const [del, setDel] = useState(false);
+  const reduce = usePrefersReducedMotion();
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState(() => words[0] ?? "");
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const word = words[i % words.length];
-    if (!del && text.length < word.length) {
-      const t = setTimeout(() => setText(word.slice(0, text.length + 1)), typingSpeed);
-      return () => clearTimeout(t);
+    if (reduce || words.length === 0) {
+      return;
     }
-    if (!del && text.length === word.length) {
-      const t = setTimeout(() => setDel(true), pause);
-      return () => clearTimeout(t);
+    const currentWord = words[index % words.length];
+    if (!deleting && text.length < currentWord.length) {
+      const timeout = setTimeout(() => setText(currentWord.slice(0, text.length + 1)), typingSpeed);
+      return () => clearTimeout(timeout);
     }
-    if (del && text.length > 0) {
-      const t = setTimeout(() => setText(word.slice(0, text.length - 1)), deletingSpeed);
-      return () => clearTimeout(t);
+    if (!deleting && text.length === currentWord.length) {
+      const timeout = setTimeout(() => setDeleting(true), pause);
+      return () => clearTimeout(timeout);
     }
-    if (del && text.length === 0) {
-      setDel(false);
-      setI(prev => (prev + 1) % words.length);
+    if (deleting && text.length > 0) {
+      const timeout = setTimeout(() => setText(currentWord.slice(0, text.length - 1)), deletingSpeed);
+      return () => clearTimeout(timeout);
     }
-  }, [text, del, i, words, typingSpeed, deletingSpeed, pause]);
+    if (deleting && text.length === 0) {
+      setDeleting(false);
+      setIndex((prev) => (prev + 1) % words.length);
+    }
+  }, [text, deleting, index, words, typingSpeed, deletingSpeed, pause, reduce]);
 
-  return <span>{text}<span className="caret">|</span></span>;
+  if (reduce || words.length === 0) {
+    const fallback = words[0] ?? "";
+    return (
+      <span className="typewriter" aria-live="off">
+        <span aria-hidden="true">{fallback}</span>
+        <span className="sr-only">{fallback}</span>
+      </span>
+    );
+  }
+
+  const visibleWord = words[index % words.length] ?? "";
+
+  return (
+    <span className="typewriter" aria-live="off">
+      <span aria-hidden="true">{text}<span className="caret">|</span></span>
+      <span className="sr-only">{visibleWord}</span>
+    </span>
+  );
 }

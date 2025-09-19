@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "title": "Sofia Guzmán · Data Analyst",
+    "description": "Portfolio of Sofia Guzmán, data analyst and Informatics Engineering student focused on analytics, visualization, and data storytelling.",
+    "ogTitle": "Sofia Guzmán · Data Analytics Portfolio",
+    "ogDescription": "Projects, experience, and contact details of Sofia Guzmán: data analyst, Power BI and Tableau dashboards, insight-driven stories.",
+    "keywords": "Sofia Guzman, data analytics, power bi, tableau, portfolio, data analyst, buenos aires",
+    "locale": "en_US"
+  },
+  "common": {
+    "skipLink": "Skip to main content",
+    "backToTop": "Back to top",
+    "themeToggle": {
+      "light": "Light",
+      "dark": "Dark",
+      "aria": {
+        "light": "Switch to light mode",
+        "dark": "Switch to dark mode"
+      }
+    },
+    "languageToggle": {
+      "label": "Language",
+      "names": {
+        "es": "ES",
+        "en": "EN"
+      },
+      "switchTo": {
+        "es": "Switch language to Spanish",
+        "en": "Switch language to English"
+      }
+    },
+    "externalNewTab": "Opens in a new tab"
+  },
+  "nav": {
+    "brand": "Sofia Guzmán",
+    "logoAlt": "Sofia Guzmán logotype",
+    "aria": "Primary sections",
+    "sections": [
+      { "id": "home", "label": "Home" },
+      { "id": "about", "label": "About" },
+      { "id": "skills", "label": "Skills" },
+      { "id": "projects", "label": "Projects" },
+      { "id": "experience", "label": "Experience" },
+      { "id": "education", "label": "Education" },
+      { "id": "contact", "label": "Contact" }
+    ]
+  },
+  "home": {
+    "title": "Hi, I'm Sofi",
+    "typewriterPrefix": "I'm",
+    "typewriterWords": [
+      "Data analyst",
+      "Cat lover",
+      "Insight seeker"
+    ],
+    "subtitle": "Informatics Engineering student (UBA)",
+    "locationLabel": "Based in",
+    "location": "Buenos Aires, Argentina",
+    "quote": "I want every project to connect with people and create meaningful impact.",
+    "downloadAria": "Download Sofía Guzmán's résumé",
+    "cta": {
+      "download": "Download résumé",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "avatarAlt": "Anime-style illustration of Sofi"
+  },
+  "about": {
+    "kicker": "About · ソフィ",
+    "title": "I craft stories with data without losing the human side.",
+    "note": "データで物語を作る — creating stories with data.",
+    "paragraphs": [
+      "I'm Sofi, an Informatics Engineering student (UBA) focused on [strong]data analytics[/strong]. I'm driven by curiosity, clear design, and collaboration. I want every delivery to resonate with real people and deliver measurable value.",
+      "Today I work with [strong]SQL[/strong], [strong]Python[/strong], [strong]Power BI[/strong], [strong]Tableau[/strong], [strong]advanced Excel[/strong], and the basics of [strong]SAP[/strong]. I'm excited about [strong]applied AI[/strong], [strong]visualization[/strong], and [strong]data UX[/strong]."
+    ],
+    "chips": [
+      "SQL",
+      "Python",
+      "Power BI",
+      "Tableau",
+      "Advanced Excel",
+      "Statistics",
+      "ETL",
+      "Data Viz",
+      "SAP (basics)",
+      "Git"
+    ],
+    "card": {
+      "title": "Right now",
+      "items": [
+        "📚 UBA – Informatics Engineering",
+        "📊 [strong]Data Analytics[/strong] and visualization projects",
+        "🔧 Practicing the basics of [strong]SAP[/strong]"
+      ],
+      "internshipTitle": "Internship · Pescar — Artech",
+      "internshipSummary": "I'm finishing an internship where I'm building a [strong]capstone project[/strong]. Focus: data cleaning, modeling, KPIs, and a dashboard ready for decision-makers. ([em]Check Experience for methodology and takeaways[/em].)"
+    }
+  },
+  "skills": {
+    "kicker": "Skills · スキル",
+    "title": "Tools I use to understand and tell data stories",
+    "cards": [
+      {
+        "id": "analysis",
+        "title": "Data analysis",
+        "items": ["SQL", "Python", "Statistics", "Cleaning / Modeling", "KPIs"]
+      },
+      {
+        "id": "bi",
+        "title": "BI · Visualization",
+        "items": ["Power BI (DAX/M)", "Power Query", "Tableau", "Dashboards", "Reporting"]
+      },
+      {
+        "id": "dataops",
+        "title": "DataOps · Integration",
+        "items": ["ETL", "Advanced Excel", "Git", "SAP (basics)", "Automation"]
+      },
+      {
+        "id": "soft",
+        "title": "Soft skills",
+        "items": ["Communication", "Collaboration", "Organization", "Attention to detail"]
+      }
+    ]
+  },
+  "projects": {
+    "kicker": "Projects · プロジェクト",
+    "title": "Selected work and experiments",
+    "filters": [
+      { "id": "all", "label": "All" },
+      { "id": "power-bi", "label": "Power BI" },
+      { "id": "python", "label": "Python" },
+      { "id": "tableau", "label": "Tableau" },
+      { "id": "sql", "label": "SQL" },
+      { "id": "etl", "label": "ETL" },
+      { "id": "dashboard", "label": "Dashboards" },
+      { "id": "data-viz", "label": "Data Viz" }
+    ],
+    "links": {
+      "view": "View",
+      "repo": "Repo",
+      "upcoming": "Dashboard coming soon"
+    },
+    "cards": [
+      {
+        "id": "pescar",
+        "title": "Internship · Pescar — Artech",
+        "year": "2025",
+        "summary": "Capstone project in data analytics: cleaning, modeling, KPIs, and a dashboard to support decisions.",
+        "tags": ["power-bi", "sql", "etl", "dashboard"],
+        "status": "upcoming",
+        "badge": "In progress"
+      },
+      {
+        "id": "ventas",
+        "title": "Demo · Sales KPIs (Power BI)",
+        "year": "2024",
+        "summary": "Sample dashboard with slicers and KPI descriptions. Emphasis on clarity.",
+        "tags": ["power-bi", "dashboard"],
+        "viewUrl": "#"
+      },
+      {
+        "id": "titanic",
+        "title": "EDA · Titanic (Python)",
+        "year": "2024",
+        "summary": "Exploratory analysis, missing value handling, and quick visuals to spot patterns.",
+        "tags": ["python", "data-viz"],
+        "repoUrl": "https://github.com/sguzman06"
+      },
+      {
+        "id": "airbnb",
+        "title": "Airbnb · Visualization (Tableau)",
+        "year": "2024",
+        "summary": "Overview of prices, review scores, and geographic distribution with interactive filters.",
+        "tags": ["tableau", "data-viz"],
+        "viewUrl": "#"
+      }
+    ]
+  },
+  "experience": {
+    "kicker": "Experience · 経験",
+    "title": "What I'm working on and what I've done",
+    "case": {
+      "badge": "Case • in progress",
+      "title": "Internship · Pescar — Artech",
+      "subtitle": "Data analytics capstone to showcase in my portfolio",
+      "problemTitle": "Problem",
+      "problem": "Need to [strong]unify data[/strong] and present [strong]clear KPIs[/strong] to prioritize actions and measure impact.",
+      "approachTitle": "Approach",
+      "approach": [
+        "Cleaning and normalization · ETL",
+        "Analytics model and KPI definitions",
+        "Dashboard with narrative and decision focus"
+      ],
+      "stackTitle": "Stack",
+      "stack": ["SQL", "Python", "Power BI", "Advanced Excel"],
+      "resultsTitle": "Expected outcomes",
+      "results": [
+        "Actionable KPIs (monthly tracking)",
+        "Clear visualization for stakeholders",
+        "Reading guide and definitions"
+      ],
+      "ctaLabel": "View dashboard (soon)",
+      "ctaTitle": "Coming soon"
+    },
+    "timeline": [
+      {
+        "period": "2025 — present",
+        "role": "Data Analytics Internship",
+        "org": "Fundación Pescar · Artech",
+        "location": "Remote / Buenos Aires",
+        "bullets": [
+          "Hands-on practice with cleaning, modeling, and presenting data.",
+          "KPIs and dashboards oriented to decision-making.",
+          "Documentation and communication of insights."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "kicker": "Education · 教育",
+    "title": "Education",
+    "card": {
+      "title": "UBA — Informatics Engineering",
+      "year": "In progress",
+      "location": "Buenos Aires, Argentina",
+      "bullets": [
+        "Key courses: Statistics, Databases, Algorithms",
+        "Interests: Data analytics, visualization, data UX"
+      ]
+    }
+  },
+  "contact": {
+    "kicker": "Contact · 連絡先",
+    "title": "Let's talk?",
+    "intro": "If you'd like to collaborate or learn more about my projects, send me a message.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your idea or project...",
+      "submit": "Send message",
+      "subject": "Inquiry from the portfolio",
+      "bodyTemplate": "Hi Sofi,\nI'm {name}.\n\n{message}\n\nContact email: {email}",
+      "mailto": "mailto:sguzman06@gmail.com",
+      "success": "Your email client should open so you can finish the message.",
+      "error": "We couldn't prepare the email. Try the direct link.",
+      "validations": {
+        "nameRequired": "I need to know your name.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "That doesn't look like a valid email.",
+        "messageRequired": "Please share at least a quick overview."
+      },
+      "fallbackLabel": "You can also write me directly at",
+      "fallbackCta": "Send email"
+    },
+    "networks": {
+      "label": "You can also find me on",
+      "items": [
+        {
+          "id": "linkedin",
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/sguzman06/"
+        },
+        {
+          "id": "github",
+          "label": "GitHub",
+          "url": "https://github.com/sguzman06"
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Oops, this page doesn't exist",
+    "message": "Head back home to keep browsing.",
+    "cta": "Go to homepage"
+  }
+}

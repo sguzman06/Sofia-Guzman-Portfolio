@@ -1,46 +1,77 @@
-import { useMemo } from "react";
+import { useMemo, useRef, type KeyboardEvent } from "react";
 import ThemeToggle from "./ThemeToggle";
-import LanguageToggle from "./LanguageToggle";     // <-- NUEVO
+import LanguageToggle from "./LanguageToggle";
 import { useActiveSection } from "../hooks/useActiveSection";
-import { useLang } from "../hooks/useLang";        // <-- NUEVO
+import { useLang } from "../hooks/useLang";
 
-const ids = ["inicio","sobre-mi","skills","proyectos","experiencia","educacion","contactos"];
+type NavItem = { id: string; label: string };
 
 export default function NavBar(){
+  const { t } = useLang();
+  const sections = t<NavItem[]>("nav.sections");
+  const ids = useMemo(() => sections.map((section) => section.id), [sections]);
   const active = useActiveSection(ids);
-  const { t } = useLang();                         // <-- NUEVO
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  linkRefs.current.length = sections.length;
 
-  const links = useMemo(() => ([
-    { href:"#inicio",      k:"nav.inicio" },
-    { href:"#sobre-mi",    k:"nav.about" },
-    { href:"#skills",      k:"nav.skills" },
-    { href:"#proyectos",   k:"nav.projects" },
-    { href:"#experiencia", k:"nav.experience" },
-    { href:"#educacion",   k:"nav.education" },
-    { href:"#contactos",   k:"nav.contact" },
-  ]), []);
+  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+    const { key } = event;
+    if (key !== "ArrowRight" && key !== "ArrowLeft" && key !== "Home" && key !== "End") {
+      return;
+    }
+    event.preventDefault();
+    const items = linkRefs.current.filter(Boolean) as HTMLAnchorElement[];
+    if (items.length === 0) {
+      return;
+    }
+    if (key === "Home") {
+      items[0]?.focus();
+      return;
+    }
+    if (key === "End") {
+      items[items.length - 1]?.focus();
+      return;
+    }
+    const direction = key === "ArrowRight" ? 1 : -1;
+    const currentIndex = items.findIndex((item) => item === document.activeElement);
+    const fallbackIndex = direction === 1 ? 0 : items.length - 1;
+    const nextIndex = currentIndex >= 0
+      ? (currentIndex + direction + items.length) % items.length
+      : fallbackIndex;
+    items[nextIndex]?.focus();
+  };
 
   return (
-    <nav className="nav">
-      <div className="container nav-inner">
-        <a href="#inicio" className="brand">
-          <img src="/brand/sg-logo.svg" className="logo" alt="Logo SG" />
-          <span>sofia guzman</span>
-        </a>
-
-        <div className="menu">
-          {links.map(l => (
-            <a key={l.href} href={l.href} className={active === l.href.slice(1) ? "active" : ""}>
-              {t(l.k)}
-            </a>
-          ))}
-          {/* Acciones a la derecha */}
-          <div style={{display:"flex", gap:8, marginLeft:8}}>
+    <header className="site-header">
+      <nav className="nav" aria-label={t("nav.aria")}>
+        <div className="nav__inner">
+          <a href="#home" className="brand">
+            <img src="/brand/sg-logo.svg" className="brand__logo" alt={t("nav.logoAlt")}/>
+            <span className="brand__label">{t("nav.brand")}</span>
+          </a>
+          <ul className="nav__list" onKeyDown={handleKeyDown}>
+            {sections.map((section, index) => {
+              const isActive = active === section.id;
+              return (
+                <li key={section.id} className="nav__item">
+                  <a
+                    ref={(el) => { linkRefs.current[index] = el; }}
+                    href={`#${section.id}`}
+                    className={`nav__link${isActive ? " is-active" : ""}`}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {section.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="nav__actions">
             <LanguageToggle />
             <ThemeToggle />
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
