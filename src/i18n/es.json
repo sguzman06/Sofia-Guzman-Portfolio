@@ -54,8 +54,8 @@
       "Curiosa por los insights"
     ],
     "subtitle": "Estudiante de Informática (UBA)",
-    "locationLabel": "Basada en",
-    "location": "Buenos Aires, Argentina",
+    "locationLabel": "Buenos Aires,",
+    "location": " Argentina",
     "quote": "Aspiro a conectar y dejar una huella significativa en cada proyecto.",
     "downloadAria": "Descargar CV de Sofía Guzmán",
     "cta": {
@@ -71,7 +71,7 @@
     "note": "データで物語を作る — crear historias con datos.",
     "paragraphs": [
       "Soy Sofi, estudiante de Ingeniería en Informática (UBA) con foco en [strong]análisis de datos[/strong]. Me mueven la curiosidad, el diseño claro y la colaboración. Busco que cada entrega conecte con personas reales y aporte valor medible.",
-      "Actualmente trabajo con [strong]SQL[/strong], [strong]Python[/strong], [strong]Power BI[/strong], [strong]Tableau[/strong], [strong]Excel avanzado[/strong] y base en [strong]SAP[/strong]. Me interesan la [strong]IA aplicada[/strong], la [strong]visualización[/strong] y el [strong]UX de datos[/strong]."
+      ""
     ],
     "chips": [
       "SQL",
@@ -103,7 +103,7 @@
       {
         "id": "analysis",
         "title": "Análisis de Datos",
-        "items": ["SQL", "Python", "Estadística", "Limpieza / Modelado", "KPIs"]
+        "items": ["SQL", "Python", "Estadística", "Normalization", "KPIs"]
       },
       {
         "id": "bi",
@@ -118,7 +118,7 @@
       {
         "id": "soft",
         "title": "Habilidades Blandas",
-        "items": ["Comunicación", "Colaboración", "Organización", "Detalle"]
+        "items": ["Comunicación", "Colaboración", "Organización", "Atencion al detalle"]
       }
     ]
   },
@@ -138,12 +138,12 @@
     "links": {
       "view": "Ver",
       "repo": "Repo",
-      "upcoming": "Publico pronto el dashboard"
+      "upcoming": "Publico pronto"
     },
     "cards": [
       {
         "id": "pescar",
-        "title": "Pasantía · Pescar — Artech",
+        "title": "Pasantía · Fundacion Pescar - Artech",
         "year": "2025",
         "summary": "Proyecto final en Data Analytics: limpieza, modelado, KPIs y dashboard para la toma de decisiones.",
         "tags": ["power-bi", "sql", "etl", "dashboard"],
@@ -151,27 +151,27 @@
         "badge": "En progreso"
       },
       {
-        "id": "ventas",
-        "title": "Demo · KPIs de Ventas (Power BI)",
-        "year": "2024",
-        "summary": "Dashboard de ejemplo con segmentaciones y descripciones de KPIs. Focus en claridad visual.",
-        "tags": ["power-bi", "dashboard"],
-        "viewUrl": "#"
+        "id": "data_base",
+        "title": "Base de Datos · Trabajo Práctico (SQL)",
+        "year": "2025",
+        "summary": "Modelado, carga de datos y consultas SQL para gestionar y analizar la base.",
+        "tags": ["SQL", "SGBD relacional", "Modelado de datos"],
+        "viewUrl": "https://github.com/sguzman06"
       },
       {
         "id": "titanic",
-        "title": "EDA · Titanic (Python)",
+        "title": "Proyecto Final Data Analytics · Dashboard en Power BI",
         "year": "2024",
-        "summary": "Exploración de datos, manejo de nulos y visualizaciones rápidas para entender patrones.",
-        "tags": ["python", "data-viz"],
+        "summary": "Dashboard en Power BI con modelado, DAX y visualizaciones para análisis de datos.",
+        "tags": ["Power BI", "Modelado de datos relacional", "Medidas calculadas (DAX)"],
         "repoUrl": "https://github.com/sguzman06"
       },
       {
-        "id": "airbnb",
-        "title": "Airbnb · Visualización (Tableau)",
+        "id": "excel",
+        "title": "Proyecto Final Excel: Procesamiento y Dashboard",
         "year": "2024",
-        "summary": "Vista general de precios, review score y distribución geográfica con filtros interactivos.",
-        "tags": ["tableau", "data-viz"],
+        "summary": "Procesamiento y análisis de datos en Excel con funciones avanzadas, validaciones y dashboard dinámico",
+        "tags": ["Excel avanzado", "Tablas y gráficos dinámicos", "Dashboard interactivo"],
         "viewUrl": "#"
       }
     ]

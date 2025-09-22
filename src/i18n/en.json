@@ -54,12 +54,12 @@
       "Insight seeker"
     ],
     "subtitle": "Informatics Engineering student (UBA)",
-    "locationLabel": "Based in",
-    "location": "Buenos Aires, Argentina",
+    "locationLabel": "Buenos Aires,",
+    "location": "Argentina",
     "quote": "I want every project to connect with people and create meaningful impact.",
-    "downloadAria": "Download Sofía Guzmán's résumé",
+    "downloadAria": "Download Sofía Guzmán's",
     "cta": {
-      "download": "Download résumé",
+      "download": "Download",
       "github": "GitHub",
       "linkedin": "LinkedIn"
     },
@@ -71,7 +71,7 @@
     "note": "データで物語を作る — creating stories with data.",
     "paragraphs": [
       "I'm Sofi, an Informatics Engineering student (UBA) focused on [strong]data analytics[/strong]. I'm driven by curiosity, clear design, and collaboration. I want every delivery to resonate with real people and deliver measurable value.",
-      "Today I work with [strong]SQL[/strong], [strong]Python[/strong], [strong]Power BI[/strong], [strong]Tableau[/strong], [strong]advanced Excel[/strong], and the basics of [strong]SAP[/strong]. I'm excited about [strong]applied AI[/strong], [strong]visualization[/strong], and [strong]data UX[/strong]."
+      "" 
     ],
     "chips": [
       "SQL",
@@ -103,7 +103,7 @@
       {
         "id": "analysis",
         "title": "Data analysis",
-        "items": ["SQL", "Python", "Statistics", "Cleaning / Modeling", "KPIs"]
+        "items": ["SQL", "Python", "Statistics", "Normalization", "KPIs"]
       },
       {
         "id": "bi",
