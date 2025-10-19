@@ -7,9 +7,11 @@ export default function Home(){
   const cta = t<Record<string, string>>("home.cta");
 
   return (
-    <section id="home" className="section section--home" aria-labelledby="home-title">
-      <div className="section__inner home__grid">
-        <div className="home__content">
+    <section id="home" 
+    className="section section--home hero hero--full hero--center citypop-hero" 
+    aria-labelledby="home-title">
+      <div className="section__inner home__grid hero-grid">
+        <div className="home__content hero-text">
           <h1 id="home-title" className="home__title">{t("home.title")}</h1>
           <p className="home__type">
             <span className="home__type-prefix">{t("home.typewriterPrefix")}</span>{" "}
@@ -53,7 +55,7 @@ export default function Home(){
             </a>
           </div>
         </div>
-        <figure className="home__figure">
+        <figure className="home__figure hero-media">
           <img
             className="home__image"
             src="/img/sofi-anime.png"
