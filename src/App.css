@@ -1,42 +1,79 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.logo:hover { filter: drop-shadow(0 0 2em rgba(100,108,255,0.67)); }
+.logo.react:hover { filter: drop-shadow(0 0 2em rgba(97,218,251,0.67)); }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
+/* Animación opcional si realmente se usa .logo dentro de un <a> segundo */
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  a:nth-of-type(2) .logo { animation: logo-spin infinite 20s linear; }
 }
 
-.card {
-  padding: 2em;
+/* Card demo (si la usás). Si no, borralo también y usa clases Tailwind. */
+.card { padding: 2em; }
+.read-the-docs { color: #888; }
+
+/* ==== HEADER FULL-BLEED (aunque esté dentro de un contenedor centrado) ==== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  /* truco full-bleed */
+  left: 0; right: 0; width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* vidrio */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.6);
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  transition: box-shadow .2s ease;
+}
+html[data-theme="dark"] .site-header{
+  background: rgba(15,23,42,.4);
+  border-bottom-color: rgba(255,255,255,.1);
 }
 
-.read-the-docs {
-  color: #888;
+/* ==== CONTENIDO INTERNO DEL NAV (sin márgenes fijos) ==== */
+.site-header .nav,
+.site-header .nav__inner{
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.site-header .nav__inner{
+  /* si querés limitar ancho, usá max-width + auto, NO márgenes fijos */
+  max-width: 1200px;              /* ajustá a gusto o quitalo */
+  margin: 0 auto;                  /* centra sin dejar huecos fijos */
+  padding-inline: clamp(12px,4vw,32px); /* respiración lateral fluida */
+  height: 56px;                    /* h-14 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* UL con overflow sin barra en desktop */
+.nav__list{
+  display:flex; align-items:center; gap:.75rem;
+  overflow-x:auto; white-space:nowrap;
+}
+@media (min-width:768px){
+  .nav__list{-ms-overflow-style:none; scrollbar-width:none;}
+  .nav__list::-webkit-scrollbar{display:none;height:0;}
+}
+.nav__list li{
+  flex-shrink:0; /* para que no se encojan los items al hacer scroll */
 }

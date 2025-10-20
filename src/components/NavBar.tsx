@@ -1,4 +1,4 @@
-import { useMemo, useRef, type KeyboardEvent } from "react";
+import { useMemo, useRef, useEffect, useState, type KeyboardEvent } from "react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useActiveSection } from "../hooks/useActiveSection";
@@ -6,7 +6,7 @@ import { useLang } from "../hooks/useLang";
 
 type NavItem = { id: string; label: string };
 
-export default function NavBar(){
+export default function NavBar() {
   const { t } = useLang();
   const sections = t<NavItem[]>("nav.sections");
   const ids = useMemo(() => sections.map((section) => section.id), [sections]);
@@ -35,18 +35,31 @@ export default function NavBar(){
     const direction = key === "ArrowRight" ? 1 : -1;
     const currentIndex = items.findIndex((item) => item === document.activeElement);
     const fallbackIndex = direction === 1 ? 0 : items.length - 1;
-    const nextIndex = currentIndex >= 0
-      ? (currentIndex + direction + items.length) % items.length
-      : fallbackIndex;
+    const nextIndex =
+      currentIndex >= 0
+        ? (currentIndex + direction + items.length) % items.length
+        : fallbackIndex;
     items[nextIndex]?.focus();
   };
 
+  // Estado para la sombra al hacer scroll
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="site-header">
+    <header
+      className={`site-header sticky top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-slate-900/40 border-b border-white/20 dark:border-white/10 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_2px_12px_-6px_rgba(0,0,0,.35)]" : ""
+      }`}
+    >
       <nav className="nav" aria-label={t("nav.aria")}>
         <div className="nav__inner">
           <a href="#home" className="brand">
-            <img src="/brand/sg-logo.svg" className="brand__logo" alt={t("nav.logoAlt")}/>
+            <img src="/brand/sg-logo.svg" className="brand__logo" alt={t("nav.logoAlt")} />
             <span className="brand__label">{t("nav.brand")}</span>
           </a>
           <ul className="nav__list" onKeyDown={handleKeyDown}>
@@ -55,7 +68,9 @@ export default function NavBar(){
               return (
                 <li key={section.id} className="nav__item">
                   <a
-                    ref={(el) => { linkRefs.current[index] = el; }}
+                    ref={(el) => {
+                      linkRefs.current[index] = el;
+                    }}
                     href={`#${section.id}`}
                     className={`nav__link${isActive ? " is-active" : ""}`}
                     aria-current={isActive ? "page" : undefined}
