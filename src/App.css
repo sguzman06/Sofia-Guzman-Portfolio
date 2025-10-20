@@ -1,3 +1,4 @@
+/* ===== Base demo (deja lo que uses) ===== */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -7,31 +8,22 @@
 .logo:hover { filter: drop-shadow(0 0 2em rgba(100,108,255,0.67)); }
 .logo.react:hover { filter: drop-shadow(0 0 2em rgba(97,218,251,0.67)); }
 
-@keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Animación opcional si realmente se usa .logo dentro de un <a> segundo */
+@keyframes logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo { animation: logo-spin infinite 20s linear; }
 }
-
-/* Card demo (si la usás). Si no, borralo también y usa clases Tailwind. */
 .card { padding: 2em; }
 .read-the-docs { color: #888; }
 
-/* ==== HEADER FULL-BLEED (aunque esté dentro de un contenedor centrado) ==== */
+/* =====================================================
+   HEADER FULL‑BLEED + VIDRIO (UNA SOLA VEZ, SIN DUPLICADOS)
+===================================================== */
 .site-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  /* truco full-bleed */
+  position: sticky; top: 0; z-index: 50;
+  /* full-bleed aunque el resto esté centrado */
   left: 0; right: 0; width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   /* vidrio */
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -39,41 +31,55 @@
   border-bottom: 1px solid rgba(255,255,255,.2);
   transition: box-shadow .2s ease;
 }
-html[data-theme="dark"] .site-header{
-  background: rgba(15,23,42,.4);
-  border-bottom-color: rgba(255,255,255,.1);
-}
+html[data-theme="dark"] .site-header{ background: rgba(15,23,42,.4); border-bottom-color: rgba(255,255,255,.1); }
 
-/* ==== CONTENIDO INTERNO DEL NAV (sin márgenes fijos) ==== */
+/* =====================================================
+   INTERIOR DEL NAV — logo a la IZQ, toggles a la DER, links CENTRO
+===================================================== */
 .site-header .nav,
-.site-header .nav__inner{
-  background: transparent;
-  box-shadow: none;
-  border: 0;
-  border-radius: 0;
-}
+.site-header .nav__inner{ background: transparent; box-shadow: none; border: 0; border-radius: 0; }
 
+/* Grid de 3 columnas: [logo] [links flexibles] [acciones] */
 .site-header .nav__inner{
-  /* si querés limitar ancho, usá max-width + auto, NO márgenes fijos */
-  max-width: 1200px;              /* ajustá a gusto o quitalo */
-  margin: 0 auto;                  /* centra sin dejar huecos fijos */
-  padding-inline: clamp(12px,4vw,32px); /* respiración lateral fluida */
-  height: 56px;                    /* h-14 */
-  display: flex;
+  max-width: 1200px;             /* ajustá o quitá si querés full width interno */
+  margin: 0 auto;
+  padding-inline: clamp(12px,4vw,32px);
+  height: 56px;                  /* h-14 */
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* IZQ | CENTRO | DER */
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(8px, 2vw, 16px);
 }
 
-/* UL con overflow sin barra en desktop */
+/* Izquierda: marca pegada a la izquierda */
+.brand{ display: inline-flex; align-items: center; gap: .5rem; justify-self: start; }
+.brand__logo{ display:block; height: 28px; width:auto; }
+.brand__label{ font-weight: 700; letter-spacing: .04em; }
+
+/* Centro: lista ocupa el espacio flexible y se centra visualmente */
 .nav__list{
-  display:flex; align-items:center; gap:.75rem;
-  overflow-x:auto; white-space:nowrap;
+  display: flex; align-items: center; gap: .75rem;
+  overflow-x: auto; white-space: nowrap;
+  justify-self: center;           /* centrado dentro de la franja central */
 }
+/* Evitar que los items se encojan y generen saltos raros */
+.nav__list li{ flex-shrink: 0; }
+
+/* Derecha: acciones pegadas a la derecha */
+.nav__actions{ display: inline-flex; align-items: center; gap: .5rem; justify-self: end; }
+
+/* Scrollbar oculta en desktop, sutil en mobile */
 @media (min-width:768px){
-  .nav__list{-ms-overflow-style:none; scrollbar-width:none;}
-  .nav__list::-webkit-scrollbar{display:none;height:0;}
+  .nav__list { -ms-overflow-style: none; scrollbar-width: none; }
+  .nav__list::-webkit-scrollbar{ display: none; height: 0; }
 }
-.nav__list li{
-  flex-shrink:0; /* para que no se encojan los items al hacer scroll */
+@media (max-width:767.98px){
+  .nav__list::-webkit-scrollbar{ height: 4px; }
+  .nav__list::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.25); border-radius: 999px; }
+  .nav__list::-webkit-scrollbar-track{ background: transparent; }
 }
+
+/* Estado activo sutil (opcional) */
+.nav__link{ padding: .375rem .5rem; border-radius: 999px; transition: opacity .15s ease, background-color .15s ease; }
+.nav__link.is-active{ background: rgba(0,0,0,.06); }
+html[data-theme="dark"] .nav__link.is-active{ background: rgba(255,255,255,.08); }
