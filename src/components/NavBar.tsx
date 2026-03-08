@@ -121,7 +121,7 @@ function MobileDrawer({ open, onClose, links, onNavigate }: MobileDrawerProps) {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`md:hidden fixed inset-0 z-50 transition-opacity ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           } bg-black/60`}
         onClick={onClose}
         aria-hidden="true"
@@ -133,7 +133,7 @@ function MobileDrawer({ open, onClose, links, onNavigate }: MobileDrawerProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación"
-        className={`
+        className={`md:hidden
           fixed inset-y-0 right-0 z-50 w-[85%] max-w-sm
           bg-[rgba(12,12,20,0.92)] backdrop-blur-md
           border-l border-white/10
@@ -206,6 +206,16 @@ function MobileDrawer({ open, onClose, links, onNavigate }: MobileDrawerProps) {
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const active = useActiveSection(NAV_LINKS.map((l) => l.id) as LinkId[]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && open) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [open]);
 
   return (
     <header

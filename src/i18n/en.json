@@ -180,27 +180,34 @@
     "kicker": "Experience · 経験",
     "title": "What I'm doing and what I've done",
     "case": {
-      "badge": "Case • in progress",
-      "title": "Internship · Pescar — Artech",
-      "subtitle": "Final Data Analytics project to publish in my portfolio",
+      "badge": "Case • Featured Project",
+      "title": "PIKI · Mail Tracking & Logistics",
+      "subtitle": "Intelligent logistics query management — Group 6 Capstone Project",
       "problemTitle": "Problem",
-      "problem": "Need to [strong]unify data[/strong] and present [strong]clear KPIs[/strong] that help prioritize actions and measure impact.",
+      "problem": "Logistics operations were [strong]fragmented and slow[/strong], leading to a heavy operational burden on customer support due to constant shipping-related inquiries.",
       "approachTitle": "Approach",
       "approach": [
-        "Cleaning and normalization · ETL",
-        "Analytical model and KPI calculation",
-        "Dashboard with a story and focus on decisions"
+        "Data cleaning and centralized structuring",
+        "Identifying patterns in customer queries",
+        "Simplifying complexity through Artificial Intelligence (Assistant)"
       ],
-      "stackTitle": "Stack",
-      "stack": ["SQL", "Python", "Power BI", "Advanced Excel"],
-      "resultsTitle": "Expected Results",
+      "stackTitle": "Stack & Solution",
+      "stack": ["Modular Architecture", "Clean Data", "Automation", "AI"],
+      "resultsTitle": "Achieved Results",
       "results": [
-        "Actionable KPIs (monthly tracking)",
-        "Simple visualization for stakeholders",
-        "Reading guide + definitions"
+        "Reduced operational workload for the support team",
+        "Clear and immediate visibility of shipment statuses",
+        "Faster, more efficient, and scalable responses"
       ],
-      "ctaLabel": "View dashboard (coming soon)",
-      "ctaTitle": "Coming soon"
+      "ctaLabel": "Figma",
+      "ctaTitle": "View landing page (Coming soon)",
+      "ctaUrl": "#",
+      "linkedinLabel": "View LinkedIn post",
+      "linkedinUrl": "https://www.linkedin.com/posts/sguzman06_cu%C3%A1nto-tiempo-pierde-un-equipo-buscando-activity-7416532677274660865-vDIW",
+      "gallery": [
+        "/images/piki/presentation_1.jpg",
+        "/images/piki/presentation_2.png"
+      ]
     },
     "timeline": [
       {

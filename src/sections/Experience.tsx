@@ -1,5 +1,6 @@
 import RichText from "../components/RichText";
 import { useLang } from "../hooks/useLang";
+import { Figma, Linkedin } from "lucide-react";
 
 type CaseStudy = {
   badge: string;
@@ -15,6 +16,10 @@ type CaseStudy = {
   results: string[];
   ctaLabel: string;
   ctaTitle: string;
+  ctaUrl?: string;
+  linkedinLabel?: string;
+  linkedinUrl?: string;
+  gallery?: string[];
 };
 
 type TimelineEntry = {
@@ -65,11 +70,49 @@ export default function Experience(){
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <button type="button" className="btn btn--ghost" disabled title={caseStudy.ctaTitle}>
-                {caseStudy.ctaLabel}
-              </button>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <a 
+                  href={caseStudy.ctaUrl !== "#" ? caseStudy.ctaUrl : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn ${caseStudy.ctaUrl === "#" ? "opacity-50 cursor-not-allowed" : "btn--primary"}`}
+                  title={caseStudy.ctaTitle}
+                >
+                  <Figma size={18} />
+                  {caseStudy.ctaLabel}
+                </a>
+                {caseStudy.linkedinUrl && (
+                  <a 
+                    href={caseStudy.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--ghost text-sm h-full"
+                    title={caseStudy.linkedinLabel}
+                  >
+                    <Linkedin size={18} />
+                    {caseStudy.linkedinLabel}
+                  </a>
+                )}
+              </div>
             </div>
           </div>
+          
+          {/* Gallery / Media Section */}
+          {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {caseStudy.gallery.map((imgUrl, idx) => (
+                <div key={idx} className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10 group">
+                  <img 
+                    src={imgUrl} 
+                    alt={`Preview ${idx + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              ))}
+            </div>
+          )}
         </article>
         <div className="timeline">
           {timeline.map((entry) => (

@@ -1,4 +1,3 @@
-
 import { useLang, type Lang } from "../hooks/useLang";
 
 export default function LanguageToggle() {
@@ -6,7 +5,7 @@ export default function LanguageToggle() {
   const names = t<Record<Lang, string>>("common.languageToggle.names");
 
   return (
-    <div className="lang-toggle" role="group" aria-label={t("common.languageToggle.label")}>
+    <div className="flex items-center h-9 p-0.5 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-space-cadet/50 backdrop-blur-md shadow-sm" role="group" aria-label={t("common.languageToggle.label")}>
       {available.map((code) => {
         const isCurrent = code === lang;
         const label = isCurrent
@@ -16,17 +15,20 @@ export default function LanguageToggle() {
           <button
             key={code}
             type="button"
-            className={`lang-pill${isCurrent ? " is-active" : ""}`}
+            className={`
+              relative flex items-center justify-center h-full px-3 rounded-full text-xs font-bold tracking-wide transition-all duration-300
+              ${isCurrent 
+                ? "bg-white dark:bg-white/15 text-black dark:text-[#00fff7] shadow-sm" 
+                : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-[#00fff7]/80"}
+            `}
             aria-pressed={isCurrent}
             aria-label={label}
             title={label}
             onClick={() => {
-              if (!isCurrent) {
-                setLang(code);
-              }
+              if (!isCurrent) setLang(code);
             }}
           >
-            <span aria-hidden="true">{names[code]}</span>
+            {names[code]}
           </button>
         );
       })}

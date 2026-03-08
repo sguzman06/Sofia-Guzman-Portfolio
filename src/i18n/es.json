@@ -180,27 +180,34 @@
     "kicker": "Experiencia · 経験",
     "title": "Lo que estoy haciendo y lo que hice",
     "case": {
-      "badge": "Case • en progreso",
-      "title": "Pasantía · Pescar — Artech",
-      "subtitle": "Proyecto final de Data Analytics para publicar en mi portfolio",
+      "badge": "Case • Proyecto Destacado",
+      "title": "PIKI · Tracking de Envíos por Correo",
+      "subtitle": "Gestión inteligente de consultas logísticas — Proyecto Integrador Grupo 6",
       "problemTitle": "Problema",
-      "problem": "Necesidad de [strong]unificar datos[/strong] y presentar [strong]KPIs claros[/strong] que ayuden a priorizar acciones y medir impacto.",
+      "problem": "La [strong]logística estaba fragmentada y era lenta[/strong], lo que generaba una alta carga operativa en el soporte al cliente debido a las constantes consultas sobre el seguimiento de envíos.",
       "approachTitle": "Enfoque",
       "approach": [
-        "Limpieza y normalización · ETL",
-        "Modelo analítico y cálculo de KPIs",
-        "Dashboard con historia y foco en decisiones"
+        "Limpieza y estructuración centralizada de datos",
+        "Identificación de patrones en las consultas",
+        "Simplificar lo complejo mediante Inteligencia Artificial (Asistente)"
       ],
-      "stackTitle": "Stack",
-      "stack": ["SQL", "Python", "Power BI", "Excel Avanzado"],
-      "resultsTitle": "Resultados esperados",
+      "stackTitle": "Stack & Solución",
+      "stack": ["Arquitectura Modular", "Datos Limpios", "Automatización", "IA"],
+      "resultsTitle": "Resultados logrados",
       "results": [
-        "KPIs accionables (seguimiento mensual)",
-        "Visualización simple para stakeholders",
-        "Guía de lectura + definiciones"
+        "Reducción de carga operativa del equipo de soporte",
+        "Visibilidad clara e inmediata del estado de los envíos",
+        "Respuestas más rápidas, eficientes y escalables"
       ],
-      "ctaLabel": "Ver dashboard (pronto)",
-      "ctaTitle": "Próximamente"
+      "ctaLabel": "Figma",
+      "ctaTitle": "Ver landing page (Próximamente)",
+      "ctaUrl": "#",
+      "linkedinLabel": "Ver publicación",
+      "linkedinUrl": "https://www.linkedin.com/posts/sguzman06_cu%C3%A1nto-tiempo-pierde-un-equipo-buscando-activity-7416532677274660865-vDIW",
+      "gallery": [
+        "/images/piki/presentation_1.jpg",
+        "/images/piki/presentation_2.png"
+      ]
     },
     "timeline": [
       {
