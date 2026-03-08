@@ -1,0 +1,64 @@
+/* ========================================
+   CITY-POP COMPLETE RESTORATION
+   Este archivo contiene TODOS los estilos necesarios
+   que se perdieron del theme.css corrupto
+   ======================================== */
+
+/* BUTTONS - Sistema completo de botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.15rem;
+    border-radius: var(--radius-md, 14px);
+    font-weight: 700;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn--primary {
+    background: #ff6fae !important;
+    color: #1d1f24 !important;
+    box-shadow: 0 8px 24px rgba(255, 111, 174, 0.4);
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 111, 174, 0.5);
+}
+
+.btn--ghost {
+    background: color-mix(in srgb, var(--color-surface) 40%, transparent);
+    border: 1px solid var(--color-outline);
+    color: var(--color-text);
+}
+
+.btn--ghost:hover {
+    background: color-mix(in srgb, var(--color-text) 8%, transparent);
+    border-color: var(--color-text);
+}
+
+.btn:disabled,
+.btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* SECTIONS - Estilos de sección */
+.section__subtitle,
+.section__note {
+    margin: 0;
+    max-inline-size: 42ch;
+    color: var(--color-muted);
+}
+
+/* CHIPS - Tags y chips */
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

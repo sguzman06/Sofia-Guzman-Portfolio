@@ -43,10 +43,10 @@ html[data-theme="dark"] .site-header{ background: rgba(15,23,42,.4); border-bott
 .site-header .nav__inner{
   max-width: 1200px;             /* ajustá o quitá si querés full width interno */
   margin: 0 auto;
-  padding-inline: clamp(12px,4vw,32px);
+  padding-inline: clamp(12px,4vw,24px);
   height: 56px;                  /* h-14 */
   display: grid;
-  grid-template-columns: auto 1fr auto; /* IZQ | CENTRO | DER */
+  grid-template-columns: minmax(0,auto) minmax(0,1fr) minmax(0,auto); /* IZQ | CENTRO | DER */
   align-items: center;
   gap: clamp(8px, 2vw, 16px);
 }

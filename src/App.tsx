@@ -1,4 +1,5 @@
 import "./styles/theme.css";
+import "./styles/citypop-override.css";
 
 import Home from "./sections/Home";
 import About from "./sections/About";

@@ -36,6 +36,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.setAttribute("data-theme", theme);
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
       document.documentElement.style.colorScheme = theme === "dark" ? "dark" : "light";
     }
     if (manualRef.current && typeof window !== "undefined") {
