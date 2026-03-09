@@ -29,7 +29,7 @@ export default function Home() {
           <div className="home__actions">
             <a
               className="btn btn--primary"
-              href="/cv/sofia-guzman.pdf"
+              href="/cv/Guzman_Sofia_CV.pdf"
               download
               aria-label={t("home.downloadAria")}
             >
