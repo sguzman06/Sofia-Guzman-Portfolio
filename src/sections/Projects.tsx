@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useLang } from "../hooks/useLang";
 
 type ProjectFilter = { id: string; label: string };
@@ -13,6 +13,7 @@ type ProjectCard = {
   badge?: string;
   viewUrl?: string | null;
   repoUrl?: string | null;
+  image?: string;
 };
 
 export default function Projects(){
@@ -20,42 +21,25 @@ export default function Projects(){
   const filters = t<ProjectFilter[]>("projects.filters");
   const projects = t<ProjectCard[]>("projects.cards");
   const links = t<Record<string, string>>("projects.links");
-  const [activeFilter, setActiveFilter] = useState(() => filters[0]?.id ?? "all");
 
   const tagLabels = useMemo(() => new Map(filters.map((filter) => [filter.id, filter.label])), [filters]);
-
-  const visibleProjects = useMemo(() => {
-    if (activeFilter === "all") {
-      return projects;
-    }
-    return projects.filter((project) => project.tags.includes(activeFilter));
-  }, [projects, activeFilter]);
 
   return (
     <section id="projects" className="section section--projects" aria-labelledby="projects-title">
       <div className="section__inner">
         <span className="section__kicker">{t("projects.kicker")}</span>
         <h2 id="projects-title" className="section__title">{t("projects.title")}</h2>
-        <div className="projects__filters" role="group" aria-label={t("projects.kicker")}>
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              type="button"
-              className={`chip${activeFilter === filter.id ? " is-active" : ""}`}
-              onClick={() => setActiveFilter(filter.id)}
-              aria-pressed={activeFilter === filter.id}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
-        <div className="projects__grid">
-          {visibleProjects.map((project) => {
+        <div className="projects__grid mt-8">
+          {projects.map((project) => {
             const isUpcoming = project.status === "upcoming";
             return (
               <article key={project.id} className={`project-card${isUpcoming ? " project-card--upcoming" : ""}`}>
                 <div className="project-card__cover" aria-hidden="true">
-                  <div className="project-card__placeholder" />
+                  {project.image ? (
+                    <img src={project.image} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+                  ) : (
+                    <div className="project-card__placeholder" />
+                  )}
                   {isUpcoming && project.badge && <span className="project-card__badge">{project.badge}</span>}
                 </div>
                 <div className="project-card__body">
@@ -66,7 +50,7 @@ export default function Projects(){
                   <p className="project-card__summary">{project.summary}</p>
                   <div className="project-card__tags">
                     {project.tags.map((tag) => (
-                      <span key={`${project.id}-${tag}`} className="chip chip--ghost">
+                      <span key={`${project.id}-${tag}`} className="chip chip--highlight">
                         {tagLabels.get(tag) ?? tag}
                       </span>
                     ))}

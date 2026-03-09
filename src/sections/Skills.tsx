@@ -9,6 +9,13 @@ type SkillCardData = {
   items: string[];
 };
 
+const RETRO_EMOJIS: Record<string, string> = {
+  analysis: "💾", // Floppy disk
+  bi: "📺",       // Retro CRT TV
+  dataops: "🕹️",  // Arcade Joystick
+  soft: "👾",     // Space Invader
+};
+
 const ICONS: Record<string, ReactNode> = {
   analysis: (
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -38,14 +45,39 @@ function SkillCard({ data }: { data: SkillCardData }) {
   const handlers = reduce ? {} : { onMouseMove: tilt.onMouseMove, onMouseLeave: tilt.onMouseLeave };
 
   return (
-    <div ref={tilt.ref} {...handlers} className="skill-card">
-      <div className="skill-card__icon" aria-hidden="true">
-        {ICONS[data.id] ?? ICONS.analysis}
+    <div ref={tilt.ref} {...handlers} className="skill-card group relative overflow-hidden transition-all duration-300 hover:border-[#ff6fae]/50 hover:shadow-[0_0_30px_rgba(255,111,174,0.15)]">
+      
+      {/* Esquina City Pop (Decoración sutil de fondo) */}
+      <div className="absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br from-[#ff6fae]/0 via-[#ff6fae]/5 to-[#ff8fbc]/20 rounded-full blur-2xl group-hover:bg-[#ff6fae]/20 transition-colors duration-500"></div>
+
+      <div className="flex items-center justify-between mb-4 relative z-10">
+        <div className="skill-card__icon relative" aria-hidden="true">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#ff6fae] to-[#60a5fa] blur-[6px] opacity-40 group-hover:opacity-80 transition-opacity duration-300 rounded-xl"></div>
+          <span className="relative z-10">{ICONS[data.id] ?? ICONS.analysis}</span>
+        </div>
+        
+        {/* Retro Emoji animado en hover */}
+        <span className="text-3xl opacity-70 group-hover:scale-110 group-hover:rotate-[15deg] group-hover:opacity-100 transition-all duration-300 cursor-default" aria-hidden="true" title="Estética Retro 2000s">
+          {RETRO_EMOJIS[data.id] || "✨"}
+        </span>
       </div>
-      <h3 className="skill-card__title">{data.title}</h3>
-      <ul className="skill-card__list">
+
+      <h3 className="skill-card__title font-bold tracking-tight relative z-10">{data.title}</h3>
+      
+      {/* Línea punteada neón con tracking point */}
+      <div className="w-full relative my-5 flex items-center z-10">
+        <div className="absolute inset-0 border-b-[2px] border-dotted border-[#ff6fae]/40 dark:border-[#ff8fbc]/40 opacity-70"></div>
+        <div className="w-2 h-2 rounded-full bg-[#ff6fae] absolute right-0 shadow-[0_0_10px_#ff6fae] animate-pulse"></div>
+        {/* Destello que corre en hover */}
+        <div className="absolute h-[2px] w-0 bg-gradient-to-r from-transparent via-[#ff6fae] to-transparent group-hover:w-full transition-all duration-[800ms] opacity-0 group-hover:opacity-100 ease-in-out"></div>
+      </div>
+
+      <ul className="skill-card__list relative z-10">
         {data.items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item} className="group/item flex items-center text-[0.95rem]">
+            <span className="text-[#ff6fae] mr-2 text-xs opacity-50 group-hover/item:opacity-100 transition-opacity">►</span>
+            <span className="group-hover/item:text-[#ff6fae] transition-colors">{item}</span>
+          </li>
         ))}
       </ul>
     </div>

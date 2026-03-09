@@ -15,6 +15,7 @@ import SkipLink from "./components/SkipLink";
 import BackToTop from "./components/BackToTop";
 import SeoHead from "./components/SeoHead";
 import Orbs from "./components/orbs";
+import JapanAestheticLayer from "./components/JapanAestheticLayer";
 
 export default function App() {
   return (
@@ -31,11 +32,12 @@ export default function App() {
         <Home />
         <About />
         <Skills />
-        <Projects />
         <Experience />
+        <Projects />
         <Education />
         <Contact />
         <Orbs />
+        <JapanAestheticLayer />
       </main>
       <BackToTop />
       <MobileBar />

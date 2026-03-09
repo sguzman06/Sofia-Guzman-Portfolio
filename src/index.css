@@ -45,3 +45,45 @@
 /* Eliminado: body { display:flex; place-items:center; min-height:100vh; } */
 /* Eliminado: estilos fijos para h1 y button con fondos/bordes */
 /* Eliminado: colores hardcodeados en anchors y media-query prefers-color-scheme */
+
+/* ------------------------------------
+   Utilidades 3D & Carrusel de Avatar
+------------------------------------- */
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+.group:hover .group-hover\:rotate-y-180 { transform: rotateY(180deg); }
+
+@keyframes scroll-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-carousel {
+  animation: scroll-carousel 15s linear infinite;
+}
+.animate-scroll-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* CRT Overlay */
+.crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Vignette / Tubo de rayos catódicos */
+.crt-vignette::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 40;
+  border-radius: inherit;
+}

@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { Home, User, Wrench, FolderGit2, Mail } from "lucide-react";
+import { Home, User, Wrench, FolderGit2, Briefcase, Mail } from "lucide-react";
 
 const NAV_LINKS = [
   { id: "home", label: "Inicio", icon: Home },
   { id: "about", label: "Sobre mí", icon: User },
   { id: "skills", label: "Skills", icon: Wrench },
+  { id: "experience", label: "Experiencia", icon: Briefcase },
   { id: "projects", label: "Proyectos", icon: FolderGit2 },
   { id: "contact", label: "Contacto", icon: Mail },
 ] as const;
@@ -28,12 +29,12 @@ function useActiveSection(ids: LinkId[]) {
         (entries) => {
           const visible = [...entries]
             .filter((e) => e.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            .sort((a, b) => b.intersectionRect.height - a.intersectionRect.height)[0];
           if (visible?.target?.id && ids.includes(visible.target.id as LinkId)) {
             setActive(visible.target.id as LinkId);
           }
         },
-        { rootMargin: "-30% 0px -60% 0px", threshold: [0.1, 0.25, 0.5, 0.75, 1] }
+        { rootMargin: "-10% 0px -40% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
       ),
     [ids]
   );
@@ -66,7 +67,7 @@ export default function MobileBar() {
       "
       aria-label="Navegación inferior"
     >
-      <ul className="h-full grid grid-cols-5">
+      <ul className="h-full grid grid-cols-6">
         {NAV_LINKS.map(({ id, label, icon: Icon }) => {
           const isActive = active === id;
           return (
@@ -80,20 +81,20 @@ export default function MobileBar() {
                 className={`
                   flex-1 flex flex-col items-center justify-center gap-1
                   text-[11px] font-medium
-                  transition
+                  transition-all active:scale-95
                   ${isActive ? "text-white" : "text-white/70 hover:text-white"}
                 `}
                 aria-current={isActive ? "page" : undefined}
               >
                 {Icon ? (
-                  <Icon size={18} className={isActive ? "" : "opacity-80"} />
+                  <Icon size={18} className={`transition-transform duration-300 ${isActive ? "-translate-y-1 drop-shadow-md text-[#00fff7]" : "opacity-80 drop-shadow-none"}`} />
                 ) : (
                   <span className="text-base">{label[0]}</span>
                 )}
                 <span
                   className={`
-                    px-2 py-0.5 rounded-md
-                    ${isActive ? "bg-white/10" : "bg-transparent"}
+                    px-2 py-0.5 rounded-md transition-all duration-300
+                    ${isActive ? "bg-white/15 shadow-inner" : "bg-transparent"}
                   `}
                 >
                   {label}

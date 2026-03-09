@@ -11,7 +11,8 @@ type AboutCard = {
 export default function About(){
   const { t } = useLang();
   const paragraphs = t<string[]>("about.paragraphs");
-  const chips = t<string[]>("about.chips");
+  const interestsTitle = t<string>("about.interestsTitle");
+  const interests = t<string[]>("about.interests");
   const card = t<AboutCard>("about.card");
 
   return (
@@ -25,10 +26,16 @@ export default function About(){
             {paragraphs.map((paragraph) => (
               <RichText key={paragraph} value={paragraph} as="p" className="about__paragraph" />
             ))}
-            <div className="chip-list" aria-label={t("about.kicker")}>
-              {chips.map((chip) => (
-                <span className="chip" key={chip}>{chip}</span>
-              ))}
+            
+            <div className="mt-8">
+              <h3 className="text-xl font-bold mb-4 text-[var(--color-primary)]">{interestsTitle}</h3>
+              <ul className="space-y-4">
+                {interests.map((interest, idx) => (
+                  <li key={idx} className="text-[0.95rem] leading-relaxed">
+                    <RichText value={interest} />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
           <aside className="about__card" aria-label={card.title}>

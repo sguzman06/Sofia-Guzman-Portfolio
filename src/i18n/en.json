@@ -36,13 +36,34 @@
     "logoAlt": "Sofía Guzmán logo",
     "aria": "Main Sections",
     "sections": [
-      { "id": "home", "label": "Home" },
-      { "id": "about", "label": "About" },
-      { "id": "skills", "label": "Skills" },
-      { "id": "projects", "label": "Projects" },
-      { "id": "experience", "label": "Experience" },
-      { "id": "education", "label": "Education" },
-      { "id": "contact", "label": "Contact" }
+      {
+        "id": "home",
+        "label": "Home"
+      },
+      {
+        "id": "about",
+        "label": "About"
+      },
+      {
+        "id": "skills",
+        "label": "Skills"
+      },
+      {
+        "id": "projects",
+        "label": "Projects"
+      },
+      {
+        "id": "experience",
+        "label": "Experience"
+      },
+      {
+        "id": "education",
+        "label": "Education"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
     ]
   },
   "home": {
@@ -70,30 +91,21 @@
     "title": "I build stories with data, without losing the human element.",
     "note": "データで物語を作る — create stories with data.",
     "paragraphs": [
-      "I'm Sofi, a Computer Science student (UBA) focusing on [strong]data analysis[/strong]. I'm driven by curiosity, clear design, and collaboration. I ensure every delivery connects with real people and adds measurable value.",
-      ""
+      "I'm Sofi. I went from watching my brother build PCs to building my own and discovering my place in data. Today I study Computer Engineering (UBA), blending my curiosity for hardware with the power of software."
     ],
-    "chips": [
-      "SQL",
-      "Python",
-      "Power BI",
-      "Tableau",
-      "Advanced Excel",
-      "Statistics",
-      "ETL",
-      "Data Viz",
-      "SAP (basic)",
-      "Git"
+    "interestsTitle": "My Interests:",
+    "interests": [
+      "[strong]- Engineering and Logic:[/strong] I'm passionate about understanding how components interact to solve complex problems.",
+      "[strong]- Data Storytelling:[/strong] My background in music and marketing allows me to transform dashboards into clear stories that connect with people."
     ],
     "card": {
-      "title": "Current Focus",
+      "title": "Currently",
       "items": [
         "📚 UBA – Computer Science",
-        "📊 [strong]Data Analytics[/strong] and visualization projects",
-        "🔧 Practice and foundation in [strong]SAP[/strong]"
+        "📊 Dashboards in [strong]Databricks[/strong] and [strong]Power BI[/strong]"
       ],
-      "internshipTitle": "Internship · Pescar — Artech",
-      "internshipSummary": "I am completing an internship where I am preparing a [strong]final project[/strong]. The focus: data cleaning, modeling, KPIs, and a clear dashboard for decision-making. ([em]Details on methodology and learnings in Experience[/em].)"
+      "internshipTitle": "Project Piki: Tracking System",
+      "internshipSummary": "I participated in the technical development of a logistics solution using [strong]Python[/strong] and [strong]n8n[/strong]. Following its initial success, we are currently scaling the project: refactoring the code for greater efficiency and designing a dedicated landing page to present our value proposition to the market."
     }
   },
   "skills": {
@@ -103,22 +115,45 @@
       {
         "id": "analysis",
         "title": "Data Analysis",
-        "items": ["SQL", "Python", "Statistics", "Normalization", "KPIs"]
+        "items": [
+          "SQL",
+          "Python",
+          "Statistics",
+          "Normalization",
+          "KPIs"
+        ]
       },
       {
         "id": "bi",
         "title": "BI · Visualization",
-        "items": ["Power BI (DAX/M)", "Power Query", "Tableau", "Dashboards", "Reporting"]
+        "items": [
+          "Power BI (DAX/M)",
+          "Power Query",
+          "Tableau",
+          "Dashboards",
+          "Reporting"
+        ]
       },
       {
         "id": "dataops",
         "title": "DataOps · Integration",
-        "items": ["ETL", "Advanced Excel", "Git", "SAP (basic)", "Automation"]
+        "items": [
+          "ETL",
+          "Advanced Excel",
+          "Git",
+          "SAP (basic)",
+          "Automation"
+        ]
       },
       {
         "id": "soft",
         "title": "Soft Skills",
-        "items": ["Communication", "Collaboration", "Organization", "Attention to Detail"]
+        "items": [
+          "Communication",
+          "Collaboration",
+          "Organization",
+          "Attention to Detail"
+        ]
       }
     ]
   },
@@ -126,14 +161,38 @@
     "kicker": "Projects · プロジェクト",
     "title": "Selected works and experiments",
     "filters": [
-      { "id": "all", "label": "All" },
-      { "id": "power-bi", "label": "Power BI" },
-      { "id": "python", "label": "Python" },
-      { "id": "tableau", "label": "Tableau" },
-      { "id": "sql", "label": "SQL" },
-      { "id": "etl", "label": "ETL" },
-      { "id": "dashboard", "label": "Dashboards" },
-      { "id": "data-viz", "label": "Data Viz" }
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "power-bi",
+        "label": "Power BI"
+      },
+      {
+        "id": "python",
+        "label": "Python"
+      },
+      {
+        "id": "tableau",
+        "label": "Tableau"
+      },
+      {
+        "id": "sql",
+        "label": "SQL"
+      },
+      {
+        "id": "etl",
+        "label": "ETL"
+      },
+      {
+        "id": "dashboard",
+        "label": "Dashboards"
+      },
+      {
+        "id": "data-viz",
+        "label": "Data Viz"
+      }
     ],
     "links": {
       "view": "View",
@@ -146,33 +205,69 @@
         "title": "Internship · Fundacion Pescar - Artech",
         "year": "2025",
         "summary": "Final project in Data Analytics: cleaning, modeling, KPIs, and a dashboard for decision-making.",
-        "tags": ["power-bi", "sql", "etl", "dashboard"],
+        "tags": [
+          "power-bi",
+          "sql",
+          "etl",
+          "dashboard"
+        ],
         "status": "upcoming",
-        "badge": "In progress"
+        "badge": "In progress",
+        "image": "/img/projects/piki.png"
       },
       {
         "id": "data_base",
         "title": "Database · Course Project (SQL)",
         "year": "2025",
         "summary": "Modeling, data loading, and SQL queries to manage and analyze the database.",
-        "tags": ["SQL", "Relational SGBD", "Data Modeling"],
-        "viewUrl": "https://github.com/sguzman06"
+        "tags": [
+          "SQL",
+          "Relational SGBD",
+          "Data Modeling"
+        ],
+        "viewUrl": "https://github.com/sguzman06",
+        "image": "/img/projects/sql-diagram.png"
       },
       {
         "id": "titanic",
         "title": "Final Data Analytics Project · Power BI Dashboard",
         "year": "2024",
         "summary": "Power BI dashboard with modeling, DAX, and visualizations for data analysis.",
-        "tags": ["Power BI", "Relational Data Modeling", "Calculated Measures (DAX)"],
-        "repoUrl": "https://github.com/sguzman06"
+        "tags": [
+          "Power BI",
+          "Relational Data Modeling",
+          "Calculated Measures (DAX)"
+        ],
+        "repoUrl": "https://github.com/sguzman06",
+        "image": "/img/projects/powerbi.png"
       },
       {
         "id": "excel",
         "title": "Final Excel Project: Processing and Dashboard",
         "year": "2024",
         "summary": "Data processing and analysis in Excel with advanced functions, validations, and dynamic dashboard.",
-        "tags": ["Advanced Excel", "Pivot Tables and Charts", "Interactive Dashboard"],
-        "viewUrl": "#"
+        "tags": [
+          "Advanced Excel",
+          "Pivot Tables and Charts",
+          "Interactive Dashboard"
+        ],
+        "viewUrl": "#",
+        "image": "/img/projects/excel.jpg"
+      },
+      {
+        "id": "portfolio",
+        "title": "Personal Portfolio · City Pop Design",
+        "year": "2025",
+        "summary": "Interactive website built with React, Tailwind CSS, and I18n. Nostalgic-futuristic City Pop aesthetic featuring theme support and advanced 3D hover interactions.",
+        "tags": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "3D Animations",
+          "City Pop"
+        ],
+        "viewUrl": "https://github.com/sguzman06/Sofia-Guzman-Portfolio",
+        "image": "/img/projects/portfolio.png"
       }
     ]
   },
@@ -192,7 +287,12 @@
         "Simplifying complexity through Artificial Intelligence (Assistant)"
       ],
       "stackTitle": "Stack & Solution",
-      "stack": ["Modular Architecture", "Clean Data", "Automation", "AI"],
+      "stack": [
+        "Modular Architecture",
+        "Clean Data",
+        "Automation",
+        "AI"
+      ],
       "resultsTitle": "Achieved Results",
       "results": [
         "Reduced operational workload for the support team",
