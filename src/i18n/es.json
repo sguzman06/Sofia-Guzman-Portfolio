@@ -114,24 +114,24 @@
     "cards": [
       {
         "id": "analysis",
-        "title": "Análisis de Datos",
+        "title": "Data Stack",
         "items": [
-          "SQL",
           "Python",
-          "Estadística",
-          "Normalization",
-          "KPIs"
+          "SQL",
+          "Databricks",
+          "Apache Spark",
+          "Data Processing"
         ]
       },
       {
         "id": "bi",
         "title": "BI · Visualización",
         "items": [
-          "Power BI (DAX/M)",
+          "Power BI (DAX / M)",
           "Power Query",
           "Tableau",
           "Dashboards",
-          "Reporting"
+          "Data Visualization"
         ]
       },
       {
@@ -139,10 +139,10 @@
         "title": "DataOps · Integración",
         "items": [
           "ETL",
-          "Excel Avanzado",
-          "Git",
-          "SAP (base)",
-          "Automatización"
+          "ETL Pipelines",
+          "Data Integration",
+          "Automatización",
+          "Excel Avanzado"
         ]
       },
       {
@@ -341,26 +341,34 @@
     "title": "¿Charlamos?",
     "intro": "Si te interesa colaborar o conocer más sobre mis proyectos, escribime.",
     "form": {
-      "nameLabel": "Nombre",
-      "namePlaceholder": "Tu nombre",
-      "emailLabel": "Correo",
+      "nameLabel": "Nombre Completo",
+      "namePlaceholder": "Tu nombre y apellido",
+      "emailLabel": "Correo electrónico",
       "emailPlaceholder": "tu@email.com",
+      "subjectLabel": "Asunto",
+      "subjectPlaceholder": "Selecciona un asunto",
+      "subjectOptions": [
+        { "value": "oportunidad_laboral", "label": "Oportunidad laboral" },
+        { "value": "freelance", "label": "Proyecto Freelance" },
+        { "value": "colaboracion", "label": "Colaboración" },
+        { "value": "consulta", "label": "Consulta / Información" }
+      ],
       "messageLabel": "Mensaje",
       "messagePlaceholder": "Contame sobre tu idea o proyecto...",
       "submit": "Enviar mensaje",
-      "subject": "Consulta desde el portfolio",
-      "bodyTemplate": "Hola Sofi,\nSoy {name}.\n\n{message}\n\nCorreo de contacto: {email}",
-      "mailto": "mailto:sguzman06@gmail.com",
-      "success": "Abrí tu cliente de correo para completar el envío.",
-      "error": "No se pudo preparar el correo. Probá el enlace directo.",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado! Te responderé a la brevedad. ✅",
+      "error": "Ocurrió un error al enviar el mensaje. ⚠️ Intentá de nuevo más tarde.",
+      "spam": "Ya enviaste un mensaje recientemente. ❗ Podrás escribirme de nuevo en:",
+      "spamUnit": "horas, minutos y segundos.",
+      "cooldownLabel": "Próximo envío disponible en:",
       "validations": {
         "nameRequired": "Necesito saber tu nombre.",
         "emailRequired": "El correo es obligatorio.",
         "emailInvalid": "El formato del correo no es válido.",
+        "subjectRequired": "Por favor seleccioná un asunto.",
         "messageRequired": "Contame al menos una idea general."
-      },
-      "fallbackLabel": "También podés escribirme directamente a",
-      "fallbackCta": "Enviar correo"
+      }
     },
     "networks": {
       "label": "Encontrame también en",

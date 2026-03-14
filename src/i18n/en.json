@@ -114,24 +114,24 @@
     "cards": [
       {
         "id": "analysis",
-        "title": "Data Analysis",
+        "title": "Data Stack",
         "items": [
-          "SQL",
           "Python",
-          "Statistics",
-          "Normalization",
-          "KPIs"
+          "SQL",
+          "Databricks",
+          "Apache Spark",
+          "Data Processing"
         ]
       },
       {
         "id": "bi",
         "title": "BI · Visualization",
         "items": [
-          "Power BI (DAX/M)",
+          "Power BI (DAX / M)",
           "Power Query",
           "Tableau",
           "Dashboards",
-          "Reporting"
+          "Data Visualization"
         ]
       },
       {
@@ -139,10 +139,10 @@
         "title": "DataOps · Integration",
         "items": [
           "ETL",
-          "Advanced Excel",
-          "Git",
-          "SAP (basic)",
-          "Automation"
+          "ETL Pipelines",
+          "Data Integration",
+          "Automation",
+          "Advanced Excel"
         ]
       },
       {
@@ -341,26 +341,34 @@
     "title": "Shall we talk?",
     "intro": "If you're interested in collaborating or learning more about my projects, feel free to reach out.",
     "form": {
-      "nameLabel": "Name",
-      "namePlaceholder": "Your name",
-      "emailLabel": "Email",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email address",
       "emailPlaceholder": "your@email.com",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "subjectOptions": [
+        { "value": "oportunidad_laboral", "label": "Job opportunity" },
+        { "value": "freelance", "label": "Freelance project" },
+        { "value": "colaboracion", "label": "Collaboration" },
+        { "value": "consulta", "label": "Query / Information" }
+      ],
       "messageLabel": "Message",
       "messagePlaceholder": "Tell me about your idea or project...",
       "submit": "Send message",
-      "subject": "Inquiry from portfolio",
-      "bodyTemplate": "Hi Sofi,\nI'm {name}.\n\n{message}\n\nContact email: {email}",
-      "mailto": "mailto:sguzman06@gmail.com",
-      "success": "Open your email client to complete the sending.",
-      "error": "Could not prepare the email. Please try the direct link.",
+      "submitting": "Sending...",
+      "success": "Message sent! I'll reply as soon as possible. ✅",
+      "error": "An error occurred while sending the message. ⚠️ Please try again later.",
+      "spam": "You already sent a message recently. ❗ You can write to me again in:",
+      "spamUnit": "hours, minutes and seconds.",
+      "cooldownLabel": "Next message available in:",
       "validations": {
         "nameRequired": "I need your name.",
         "emailRequired": "Email is required.",
         "emailInvalid": "The email format is invalid.",
+        "subjectRequired": "Please select a subject.",
         "messageRequired": "Tell me at least a general idea."
-      },
-      "fallbackLabel": "You can also write me directly at",
-      "fallbackCta": "Send email"
+      }
     },
     "networks": {
       "label": "You can also find me on",
