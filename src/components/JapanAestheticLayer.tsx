@@ -19,7 +19,7 @@ export default function JapanAestheticLayer() {
 
   return (
     <div className="JapanAesthetic pointer-events-none fixed inset-0 z-50 overflow-hidden">
-      <CompanionCat />
+      {/* <CompanionCat /> */}
       {/* Sakura Petals */}
       {[...Array(12)].map((_, i) => (
         <SakuraPetal key={i} />

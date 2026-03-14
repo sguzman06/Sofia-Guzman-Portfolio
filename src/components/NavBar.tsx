@@ -145,7 +145,7 @@ function MobileDrawer({ open, onClose, links, onNavigate }: MobileDrawerProps) {
       >
         <div className="h-16 px-4 flex items-center justify-between border-b border-black/10 dark:border-white/10">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-400 via-cyan-300 to-amber-300" />
+            <img src="/img/navbar-logo.png" alt="" className="h-8 w-8 rounded-xl object-cover" />
             <span className="text-sm font-semibold tracking-wide text-black dark:text-white">Sofía Guzmán</span>
           </div>
           <button
@@ -232,7 +232,7 @@ export default function NavBar() {
           className="flex items-center gap-2 group"
           aria-label="Ir al inicio"
         >
-          <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-indigo-400 via-cyan-300 to-amber-300 opacity-90 group-hover:opacity-100 transition" />
+          <img src="/img/navbar-logo.png" alt="" className="h-8 w-8 rounded-xl object-cover opacity-90 group-hover:opacity-100 transition" />
           <span className="text-sm md:text-base font-semibold tracking-wide">
             Sofía Guzmán
           </span>

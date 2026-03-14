@@ -77,7 +77,7 @@
     "subtitle": "Computer Science Student (UBA)",
     "locationLabel": "Buenos Aires,",
     "location": " Argentina",
-    "quote": "I aspire to connect and leave a meaningful mark on every project.",
+    "quote": "I aspire to [em]connect[/em] and leave a meaningful [em]mark[/em] on every [em]project[/em].",
     "downloadAria": "Download Sofía Guzmán's CV",
     "cta": {
       "download": "Download CV",
@@ -197,6 +197,7 @@
     "links": {
       "view": "View",
       "repo": "Repo",
+      "linkedin": "View publication",
       "upcoming": "Coming soon"
     },
     "cards": [
@@ -225,7 +226,7 @@
           "Relational SGBD",
           "Data Modeling"
         ],
-        "viewUrl": "https://github.com/sguzman06",
+        "repoUrl": "https://github.com/sguzman06/Proyecto-final-Base-de-Datos",
         "image": "/img/projects/sql-diagram.png"
       },
       {
@@ -238,7 +239,8 @@
           "Relational Data Modeling",
           "Calculated Measures (DAX)"
         ],
-        "repoUrl": "https://github.com/sguzman06",
+        "repoUrl": "https://github.com/sguzman06/TP-PowerBI-RuidoDigital",
+        "linkedinUrl": "https://www.linkedin.com/posts/sguzman06_dataanalytics-powerbi-saludmental-activity-7407552642618400768-BcOY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhajZ4B2KqF4XOYgw96H3soRxCP-S-mNA4",
         "image": "/img/projects/powerbi.png"
       },
       {
@@ -251,7 +253,7 @@
           "Pivot Tables and Charts",
           "Interactive Dashboard"
         ],
-        "viewUrl": "#",
+        "repoUrl": "https://github.com/sguzman06/Proyectos-Excel",
         "image": "/img/projects/excel.jpg"
       },
       {
@@ -266,7 +268,8 @@
           "3D Animations",
           "City Pop"
         ],
-        "viewUrl": "https://github.com/sguzman06/Sofia-Guzman-Portfolio",
+        "repoUrl": "https://github.com/sguzman06/Sofia-Guzman-Portfolio",
+        "linkedinUrl": "https://www.linkedin.com/in/sguzman06/",
         "image": "/img/projects/portfolio.png"
       }
     ]
@@ -311,7 +314,7 @@
     },
     "timeline": [
       {
-        "period": "2025 — Present",
+        "period": "2025",
         "role": "Data Analytics Internship",
         "org": "Fundación Pescar · Artech",
         "location": "Remote / Buenos Aires",

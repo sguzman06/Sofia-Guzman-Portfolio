@@ -44,7 +44,7 @@ const KEYFRAMES = `
   }
 
   .skill-emoji {
-    font-size: 3.2rem;
+    font-size: 3.0rem;
     line-height: 1;
     display: flex;
     align-items: center;

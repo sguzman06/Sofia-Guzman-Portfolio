@@ -13,6 +13,7 @@ type ProjectCard = {
   badge?: string;
   viewUrl?: string | null;
   repoUrl?: string | null;
+  linkedinUrl?: string | null;
   image?: string;
 };
 
@@ -76,6 +77,17 @@ export default function Projects(){
                         aria-label={`${links.repo} · ${project.title}. ${t("common.externalNewTab")}`}
                       >
                         {links.repo}
+                      </a>
+                    )}
+                    {project.linkedinUrl && (
+                      <a
+                        className="btn btn--ghost"
+                        href={project.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${links.linkedin} · ${project.title}. ${t("common.externalNewTab")}`}
+                      >
+                        {links.linkedin || "LinkedIn"}
                       </a>
                     )}
                     {isUpcoming && (
